@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SRGElab | Space Robotics & Generative Estimation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+    <style>
+        :root {
+            --primary-color: #003366;
+            --secondary-color: #ff6600;
+            --accent-color: #0099cc;
+            --accent-hover: #007aa3;
+            --light-bg: #f5f5f5;
+            --dark-bg: #1a1a1a;
+            --text-color: #333;
+            --text-light: #fff;
+            --spacing-sm: 0.5rem;
+            --spacing-md: 1rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 4rem;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Exo 2', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        /* Header styles */
+        header {
+            background-color: var(--primary-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--box-shadow);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing-md) 0;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        .site-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-light);
+            letter-spacing: 1px;
+        }
+
+        .site-title span {
+            color: var(--secondary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: var(--spacing-lg);
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: var(--spacing-sm) 0;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            width: 30px;
+            height: 3px;
+            background-color: var(--text-light);
+            transition: var(--transition);
+        }
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+            height: 70vh;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            color: var(--text-light);
+        }
+        
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+        }
+        
+        .hero-background img, 
+        .hero-background video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.3;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 30, 60, 0.8);
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: var(--spacing-md);
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .hero-content h1 span {
+            color: var(--secondary-color);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: var(--spacing-lg);
+            max-width: 600px;
+        }
+
+        /* Section styles */
+        .section {
+            padding: var(--spacing-xl) 0;
+            position: relative;
+        }
+
+        .section-light {
+            background-color: var(--light-bg);
+        }
+
+        .section-title {
+            margin-bottom: var(--spacing-md);
+            text-align: center;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin: 0;
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary-color);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto var(--spacing-lg);
+            font-size: 1.1rem;
+        }
+
+        /* Lab photos gallery */
+        .lab-photos {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-md);
+            margin: var(--spacing-lg) 0;
+        }
+        
+        .lab-photo {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            aspect-ratio: 16 / 9;
+        }
+        
+        .lab-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+        
+        .lab-photo img:hover {
+            transform: scale(1.03);
+        }
+
+        /* Button styles */
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.8rem;
+            background-color: var(--secondary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            transition: var(--transition);
+            margin-right: var(--spacing-md);
+            border: 2px solid var(--secondary-color);
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--secondary-color);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--text-light);
+            border: 2px solid var(--text-light);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--text-light);
+            color: var(--primary-color);
+            border-color: var(--text-light);
+        }
+
+        /* Scrollable sections */
+        .scroll-container {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+            padding-bottom: 16px;
+        }
+        
+        .scroll-container::-webkit-scrollbar {
+            height: 8px;
+        }
+        
+        .scroll-container::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+        }
+        
+        .scroll-container::-webkit-scrollbar-thumb {
+            background: var(--accent-color);
+            border-radius: 4px;
+        }
+        
+        .research-grid, .team-grid {
+            display: flex;
+            flex-wrap: nowrap;
+            gap: var(--spacing-lg);
+            padding: var(--spacing-md) 0;
+            min-width: min-content;
+        }
+        
+        .research-card, .team-member {
+            flex: 0 0 auto;
+            width: 350px;
+            max-width: none;
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+
+        .research-card:hover, .team-member:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .research-card-img, .team-member-img {
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+        }
+        
+        .research-card-img img, .team-member-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .research-card:hover .research-card-img img,
+        .team-member:hover .team-member-img img {
+            transform: scale(1.05);
+        }
+        
+        .research-card-content, .team-member-info {
+            padding: var(--spacing-md);
+        }
+        
+        .research-card-content h3, .team-member-info h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+        
+        .team-member-role {
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin: 0 0 var(--spacing-sm);
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+        
+        .team-member-contact {
+            margin-top: var(--spacing-md);
+        }
+        
+        .team-member-contact a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .team-member-contact a:hover {
+            color: var(--accent-hover);
+        }
+        
+        /* Scroll indicators */
+        .scroll-indicators {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-md);
+        }
+        
+        .scroll-indicator {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--accent-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .scroll-indicator:hover {
+            background: var(--accent-hover);
+        }
+
+        /* Equipment section */
+        .section-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .section-content ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .section-content li {
+            padding: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            position: relative;
+            padding-left: 3rem;
+        }
+
+        .section-content li::before {
+            content: "";
+            position: absolute;
+            left: var(--spacing-md);
+            top: 50%;
+            transform: translateY(-50%);
+            width: 12px;
+            height: 12px;
+            background-color: var(--secondary-color);
+            border-radius: 50%;
+        }
+
+        /* Contact section */
+        .contact-info {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--spacing-md);
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--accent-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .contact-text a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .contact-text a:hover {
+            color: var(--accent-hover);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: var(--spacing-lg) 0;
+            text-align: center;
+        }
+
+        .footer-content p {
+            margin: var(--spacing-sm) 0;
+        }
+
+        /* Team member card styles */
+        .team-member {
+            flex: 0 0 auto;
+            width: 350px;
+            max-width: none;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .team-member-img {
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .team-member-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            transition: all 0.3s ease;
+        }
+        
+        .team-member:hover .team-member-img img {
+            transform: scale(1.05);
+        }
+        
+        .team-member-info {
+            padding: 1.5rem;
+        }
+        
+        .team-member-info h3 {
+            margin-top: 0;
+            color: #003366;
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+        
+        .team-member-role {
+            color: #ff6600;
+            font-weight: 600;
+            margin: 0 0 0.75rem;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+        }
+        
+        .team-member-info p {
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        
+        .team-member-contact {
+            margin-top: 1rem;
+        }
+        
+        .team-member-contact a {
+            color: #0099cc;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+        
+        .team-member-contact a:hover {
+            color: #007aa3;
+            text-decoration: underline;
+        }
+
+        img {
+            object-fit: cover;
+        }
+
+        /* Responsive */
+        @media screen and (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+            
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--primary-color);
+                flex-direction: column;
+                align-items: center;
+                padding: var(--spacing-md) 0;
+                gap: var(--spacing-md);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: var(--transition);
+                z-index: 999;
+            }
+            
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .menu-toggle.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 6px);
+            }
+            
+            .menu-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .menu-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -6px);
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content p {
+                font-size: 1rem;
+            }
+            
+            .lab-photos {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-details {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <div class="container">
+            <nav>
+                <div class="logo-container">
+                    <svg class="logo" width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="25" cy="25" r="23" stroke="#0099cc" stroke-width="4"/>
+                        <path d="M25 10 L25 40" stroke="#ff6600" stroke-width="4" stroke-linecap="round"/>
+                        <path d="M10 25 L40 25" stroke="#ff6600" stroke-width="4" stroke-linecap="round"/>
+                        <path d="M17 17 L33 33" stroke="#ff6600" stroke-width="4" stroke-linecap="round"/>
+                        <path d="M33 17 L17 33" stroke="#ff6600" stroke-width="4" stroke-linecap="round"/>
+                    </svg>
+                    <div class="site-title">SRGE<span>lab</span></div>
+                </div>
+                
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#research">Research</a></li>
+                    <li><a href="#team">Team</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                
+                <div class="menu-toggle" id="menuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-background">
+            <img src="./assets/space-robotics-bg.gif" alt="Space robotics animation">
+        </div>
+        <div class="hero-overlay"></div>
+        
+        <div class="container">
+            <div class="hero-content">
+                <h1>Space Robotics & <span>Generative Estimation</span> Lab</h1>
+                <p>Advancing autonomous robotics for space exploration, planetary navigation, and extreme environments through cutting-edge perception and estimation technologies.</p>
+                <div>
+                    <a href="#research" class="btn">Our Research</a>
+                    <a href="#team" class="btn btn-outline">Meet Our Team</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Lab Photos Gallery -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Lab</h2>
+            </div>
+            <div class="lab-photos">
+                <div class="lab-photo">
+                    <img src="./assets/lab/lab-photo-1.jpg" alt="Lab robot testing">
+                </div>
+                <div class="lab-photo">
+                    <img src="./assets/lab/lab-photo-2.jpg" alt="Computer visualization">
+                </div>
+                <div class="lab-photo">
+                    <img src="./assets/lab/lab-photo-3.jpg" alt="Student working">
+                </div>
+                <div class="lab-photo">
+                    <img src="./assets/lab/lab-photo-4.jpg" alt="Student with multiple monitors">
+                </div>
+            </div>
+            
+            <div class="section-subtitle">
+                <p>The Space Robotics and Generative Estimation (SRGE) Lab, directed by Dr. Cagri Kilic, specializes in state estimation and navigation for planetary exploration robots. The lab develops physics-informed estimation methods, integrating pseudo-measurements and multi-sensor fusion to enhance localization and mapping in GNSS-denied environments. Research spans single- and multi-robot systems, optimizing autonomy, perception, and mobility in challenging terrains. The lab's work is directly applicable to planetary missions, supporting autonomous exploration, resource prospecting, and robotic collaboration on the Moon and Mars.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-light" id="research">
+        <div class="container">
+            <div class="section-title">
+                <h2>Research Areas</h2>
+            </div>
+            <div class="section-subtitle">
+                Exploring the frontiers of autonomous robotics through innovative approaches to perception, estimation, and control in challenging environments.
+            </div>
+            
+            <!-- Research grid horizontally scrollable -->
+            <div class="scroll-container">
+                <div class="research-grid">
+                    <div class="research-card">
+                        <div class="research-card-img">
+                            <img src="./assets/research/lab-photo-1.jpg" alt="Localization and Mapping">
+                        </div>
+                        <div class="research-card-content">
+                            <h3>Localization and Mapping</h3>
+                            <p>Developing robust state estimation frameworks for ground and legged robots operating on extreme environments (i.e., planetary surfaces).</p>
+                            <a href="#" class="btn">Learn More</a>
+                        </div>
+                    </div>
+                    
+                    <div class="research-card">
+                        <div class="research-card-img">
+                            <img src="./assets/research/lab-photo-2.jpg" alt="Multi-Robot Systems">
+                        </div>
+                        <div class="research-card-content">
+                            <h3>Multi-Robot Systems</h3>
+                            <p>Exploring swarm-based and distributed estimation techniques for improved localization and environmental perception.</p>
+                            <a href="#" class="btn">Learn More</a>
+                        </div>
+                    </div>
+                    
+                    <div class="research-card">
+                        <div class="research-card-img">
+                            <img src="./assets/research/lab-photo-3.jpg" alt="Physics-Informed Estimation">
+                        </div>
+                        <div class="research-card-content">
+                            <h3>Physics-Informed Estimation</h3>
+                            <p>Enhancing navigation accuracy by incorporating physical laws and constraints relevant to planetary environments.</p>
+                            <a href="#" class="btn">Learn More</a>
+                        </div>
+                    </div>
+                    
+                    <div class="research-card">
+                        <div class="research-card-img">
+                            <img src="./assets/research/lab-photo-4.jpg" alt="Terrain-Aware Mobility">
+                        </div>
+                        <div class="research-card-content">
+                            <h3>Terrain-Aware Mobility</h3>
+                            <p>Modeling robot-terrain interactions to improve slip-aware localization and locomotion strategies.</p>
+                            <a href="#" class="btn">Learn More</a>
+                        </div>
+                    </div>
+                    
+                    <div class="research-card">
+                        <div class="research-card-img">
+                            <img src="./assets/research/research_missions_1.jpg" alt="Application to Space Missions">
+                        </div>
+                        <div class="research-card-content">
+                            <h3>Application to Space Missions</h3>
+                            <p>Translating estimation and navigation methods into practical solutions for planetary exploration missions, including autonomous surface operations.</p>
+                            <a href="#" class="btn">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Scroll indicators for research -->
+            <div class="scroll-indicators">
+                <div class="scroll-indicator scroll-left">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15 19L8 12L15 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <div class="scroll-indicator scroll-right">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 5L16 12L9 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="equipment">
+        <div class="container">
+            <div class="section-title">
+                <h2>Equipment</h2>
+            </div>
+            <div class="section-content">
+                <ul>
+                    <li>Rover and quadruped robotic platforms</li>
+                    <li>End effector and manipulators</li>
+                    <li>High-precision IMUs, LiDAR, and stereo cameras</li>
+                    <li>Computational resources for sensor fusion and generative estimation modeling</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="section section-light" id="team">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Team</h2>
+            </div>
+            <div class="section-subtitle">
+                Meet the brilliant minds behind our cutting-edge research in space robotics and generative estimation.
+            </div>
+            
+            <!-- Team grid horizontally scrollable -->
+            <div class="scroll-container">
+                <div class="team-grid">
+                    <!-- Faculty -->
+                    <div class="team-member">
+                        <div class="team-member-img">
+                            <img src="./assets/team/dr_kilic.jpg" alt="Dr. Cagri Kilic">
+                        </div>
+                        <div class="team-member-info">
+                            <h3>Dr. Cagri Kilic</h3>
+                            <p class="team-member-role">Lab Director</p>
+                            <p>Specializes in state estimation and navigation for planetary exploration robots.</p>
+                            <div class="team-member-contact">
+                                <a href="mailto:kilicc@erau.edu">kilicc@erau.edu</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- PhD Students -->
+                    <div class="team-member">
+                        <div class="team-member-img">
+                            <img src="./assets/team/tuba_girgin.jpg" alt="Tuba Girgin">
+                        </div>
+                        <div class="team-member-info">
+                            <h3>Tuba Girgin</h3>
+                            <p class="team-member-role">Research Assistant – PhD Student</p>
+                            <p>Robotics researcher specializing in ROS, robot learning, and deep learning for autonomous robot navigation and manipulation on planetary surfaces.</p>
+                            <div class="team-member-contact">
+                                <a href="mailto:cibukgig@my.erau.edu">cibukgig@my.erau.edu</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="team-member-img">
+                            <img src="./assets/team/emre_girgin.jpg" alt="Emre Girgin">
+                        </div>
+                        <div class="team-member-info">
+                            <h3>Emre Girgin</h3>
+                            <p class="team-member-role">PhD Student</p>
+                            <p>Computer Vision / Deep Learning / Robotics</p>
+                            <div class="team-member-contact">
+                                <a href="mailto:girgine@my.erau.edu">girgine@my.erau.edu</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Masters Students -->
+                    <div class="team-member">
+                        <div class="team-member-img">
+                            <img src="./assets/team/anthony_seholm.jpg" alt="Anthony Seholm">
+                        </div>
+                        <div class="team-member-info">
+                            <h3>Anthony Seholm</h3>
+                            <p class="team-member-role">Masters Student</p>
+                            <p>Structures and materials researcher focused on finding novel methods of utilizing existing technology in lunar environments.</p>
+                            <div class="team-member-contact">
+                                <a href="mailto:seholma@my.erau.edu">seholma@my.erau.edu</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="team-member-img">
+                            <img src="./assets/team/francisco_bustamante.jpg" alt="Francisco Bustamante">
+                        </div>
+                        <div class="team-member-info">
+                            <h3>Francisco Bustamante</h3>
+                            <p class="team-member-role">Masters Student</p>
+                            <p>Factor-Graph based estimation researcher, focusing on long-term planetary rover missions.</p>
+                            <div class="team-member-contact">
+                                <a href="mailto:bustamaf@my.erau.edu">bustamaf@my.erau.edu</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="team-member-img">
+                            <img src="./assets/team/jasmine_nakladov.jpg" alt="Jasmine Nakladov">
+                        </div>
+                        <div class="team-member-info">
+                            <h3>Jasmine Nakladov</h3>
+                            <p class="team-member-role">Research Assistant – Master's Student</p>
+                            <p>Dynamics and controls researcher focused on designing control systems to aid in autonomous robot navigation.</p>
+                            <div class="team-member-contact">
+                                <a href="mailto:nakladoj@my.erau.edu">nakladoj@my.erau.edu</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Undergraduate Students -->
+                    <div class="team-member">
+                        <div class="team-member-img">
+                            <img src="./assets/team/seanmcconoughey1.jpg" alt="Sean McConoughey">
+                        </div>
+                        <div class="team-member-info">
+                            <h3>Sean McConoughey</h3>
+                            <p class="team-member-role">Research Assistant – Undergraduate Student</p>
+                            <p>Cybersecurity researcher focused on enhancing cyber resilience in robotics and autonomous exploration systems.</p>
+                            <div class="team-member-contact">
+                                <a href="mailto:mcconous@my.erau.edu">mcconous@my.erau.edu</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="team-member-img">
+                            <img src="./assets/team/leia_spaniak.jpg" alt="Leia Spaniak">
+                        </div>
+                        <div class="team-member-info">
+                            <h3>Leia Spaniak</h3>
+                            <p class="team-member-role">Research Assistant – Undergraduate Researcher</p>
+                            <p>Researcher focused on integrating biologically inspired design in cybersecurity methods for aerospace navigation.</p>
+                            <div class="team-member-contact">
+                                <a href="mailto:spaniakl@my.erau.edu">spaniakl@my.erau.edu</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="team-member-img">
+                            <img src="./assets/team/eeman_abid.jpg" alt="Eeman Abid">
+                        </div>
+                        <div class="team-member-info">
+                            <h3>Eeman Abid</h3>
+                            <p class="team-member-role">Research Assistant – Undergraduate Student</p>
+                            <p>Space Robotics researcher with a focus in hybrid hierarchical swarm robots for planetary exploration along with different machine learning methods.</p>
+                            <div class="team-member-contact">
+                                <a href="mailto:abide@my.erau.edu">abide@my.erau.edu</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="team-member-img">
+                            <img src="./assets/team/deanna_paladino.jpg" alt="Deanna Paladino">
+                        </div>
+                        <div class="team-member-info">
+                            <h3>Deanna Paladino</h3>
+                            <p class="team-member-role">Research Assistant – Undergraduate Student</p>
+                            <p>Researcher in space robotics focusing on object manipulation, robotic pushing solutions, and inverse kinematics.</p>
+                            <div class="team-member-contact">
+                                <a href="mailto:paladind@my.erau.edu">paladind@my.erau.edu</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Scroll indicators for team -->
+            <div class="scroll-indicators">
+                <div class="scroll-indicator team-scroll-left">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15 19L8 12L15 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <div class="scroll-indicator team-scroll-right">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 5L16 12L9 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+            </div>
+            <div class="section-subtitle">
+                Interested in our research or potential collaborations? Get in touch with the SRGElab team.
+            </div>
+            <div class="contact-info">
+                <h3>Lab Information</h3>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13 15.87 2 12 2ZM12 11.5C10.62 11.5 9.5 10.38 9.5 9C9.5 7.62 10.62 6.5 12 6.5C13.38 6.5 14.5 7.62 14.5 9C14.5 10.38 13.38 11.5 12 11.5Z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <div class="contact-text">
+                            <p>Department of Aerospace Engineering<br>600 S. Clyde Morris Blvd.<br>Daytona Beach, FL 32114-3900</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <div class="contact-text">
+                            <a href="mailto:dbsrgelb@erau.edu">dbsrgelb@erau.edu</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6.62 10.79C8.06 13.62 10.38 15.94 13.21 17.38L15.41 15.18C15.69 14.9 16.08 14.82 16.43 14.93C17.55 15.3 18.75 15.5 20 15.5C20.55 15.5 21 15.95 21 16.5V20C21 20.55 20.55 21 20 21C10.61 21 3 13.39 3 4C3 3.45 3.45 3 4 3H7.5C8.05 3 8.5 3.45 8.5 4C8.5 5.25 8.7 6.45 9.07 7.57C9.18 7.92 9.1 8.31 8.82 8.59L6.62 10.79Z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <div class="contact-text">
+                            <a href="tel:+15551234567">(555) 123-4567</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3>Lab Hours</h3>
+                <p>Monday - Friday: 9:00 AM - 5:00 PM<br>
+                Saturday - Sunday: Closed</p>
+                
+                <p style="margin-top: var(--spacing-md);">For research collaborations, student opportunities, or media inquiries, please contact us directly via email.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Space Robotics and Generative Estimation Lab</p>
+                <p>Embry-Riddle Aeronautical University</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Research section scroll controls
+            const researchContainer = document.querySelector('#research .scroll-container');
+            const leftResearchBtn = document.querySelector('.scroll-left');
+            const rightResearchBtn = document.querySelector('.scroll-right');
+            
+            leftResearchBtn.addEventListener('click', () => {
+                researchContainer.scrollBy({ left: -400, behavior: 'smooth' });
+            });
+            
+            rightResearchBtn.addEventListener('click', () => {
+                researchContainer.scrollBy({ left: 400, behavior: 'smooth' });
+            });
+            
+            // Team section scroll controls
+            const teamContainer = document.querySelector('#team .scroll-container');
+            const leftTeamBtn = document.querySelector('.team-scroll-left');
+            const rightTeamBtn = document.querySelector('.team-scroll-right');
+            
+            leftTeamBtn.addEventListener('click', () => {
+                teamContainer.scrollBy({ left: -400, behavior: 'smooth' });
+            });
+            
+            rightTeamBtn.addEventListener('click', () => {
+                teamContainer.scrollBy({ left: 400, behavior: 'smooth' });
+            });
+            
+            // Menu toggle for mobile
+            const menuToggle = document.getElementById('menuToggle');
+            const navLinks = document.getElementById('navLinks');
+            
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                menuToggle.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
