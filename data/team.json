@@ -1,0 +1,65 @@
+[
+  {
+    "name": "Dr. Cagri Kilic",
+    "role": "Lab Director",
+    "email": "kilicc@erau.edu",
+    "photo": "assets/team/dr_kilic.jpg",
+    "bio": "Specializes in state estimation and navigation for planetary exploration robots."
+  },
+  {
+    "name": "Tuba Girgin",
+    "role": "Research Assistant – PhD Student",
+    "email": "cibukgig@my.erau.edu",
+    "photo": "assets/team/tuba_girgin.jpg",
+    "bio": "ROS, robot learning, and deep learning for autonomous navigation and manipulation on planetary surfaces."
+  },
+  {
+    "name": "Emre Girgin",
+    "role": "PhD Student",
+    "email": "girgine@my.erau.edu",
+    "photo": "assets/team/emre_girgin.jpg",
+    "bio": "Computer Vision / Deep Learning / Robotics."
+  },
+  {
+    "name": "Leia Spaniak",
+    "role": "Research Assistant – Master's Student",
+    "email": "spaniakl@my.erau.edu",
+    "photo": "assets/team/leia_spaniak.jpg",
+    "bio": "Integrating biologically inspired design in cybersecurity methods for aerospace navigation."
+  },
+  {
+    "name": "Benjamin Heckel",
+    "role": "Research Assistant – Master's Student",
+    "email": "",
+    "photo": "",
+    "bio": "Researcher in space robotics."
+  },
+  {
+    "name": "Jasmine Nakladov",
+    "role": "Research Assistant – Master's Student",
+    "email": "nakladoj@my.erau.edu",
+    "photo": "assets/team/jasmine_nakladov.jpg",
+    "bio": "Dynamics and controls for autonomous robot navigation."
+  },
+  {
+    "name": "Sean McConoughey",
+    "role": "Research Assistant – Undergraduate Student",
+    "email": "mcconous@my.erau.edu",
+    "photo": "assets/team/seanmcconoughey1.jpg",
+    "bio": "Cybersecurity for robotics and autonomous exploration systems."
+  },
+  {
+    "name": "Eeman Abid",
+    "role": "Research Assistant – Undergraduate Student",
+    "email": "abide@my.erau.edu",
+    "photo": "assets/team/eeman_abid.jpg",
+    "bio": "Swarm robots for planetary exploration and machine learning methods."
+  },
+  {
+    "name": "Deanna Paladino",
+    "role": "Research Assistant – Undergraduate Student",
+    "email": "paladind@my.erau.edu",
+    "photo": "assets/team/deanna_paladino.jpg",
+    "bio": "Object manipulation, robotic pushing, and inverse kinematics."
+  }
+]
