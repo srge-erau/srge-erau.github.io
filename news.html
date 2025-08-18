@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Research | SRGElab</title>
+    <title>News | SRGElab</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -101,6 +101,14 @@
             color: var(--secondary-color);
         }
 
+        body.dark .site-title {
+            color: var(--secondary-color);
+        }
+
+        body.dark .site-title span {
+            color: var(--text-light);
+        }
+
         .nav-links {
             display: flex;
             list-style: none;
@@ -126,14 +134,6 @@
         }
 
         body.dark .nav-links a:hover {
-            color: var(--text-light);
-        }
-
-        body.dark .site-title {
-            color: var(--secondary-color);
-        }
-
-        body.dark .site-title span {
             color: var(--text-light);
         }
 
@@ -192,88 +192,151 @@
             font-size: 1.1rem;
         }
 
-        /* Research grid */
-        .research-grid {
+        /* News grid */
+        .news-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: var(--spacing-lg);
             padding: var(--spacing-md) 0;
         }
 
         @media (min-width: 1200px) {
-            .research-grid {
-                grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            .news-grid {
+                grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
             }
         }
 
         @media (min-width: 1600px) {
-            .research-grid {
-                grid-template-columns: repeat(4, 1fr);
+            .news-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
         
-        .research-card {
+        .news-card {
             background: var(--card-bg);
             border-radius: var(--border-radius);
             overflow: hidden;
             box-shadow: var(--box-shadow);
             transition: var(--transition);
+            display: flex;
+            flex-direction: column;
         }
 
-        .research-card:hover {
+        .news-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
         }
         
-        .research-card-img {
+        .news-card-img {
             width: 100%;
             height: 220px;
             overflow: hidden;
         }
         
-        .research-card-img img {
+        .news-card-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: var(--transition);
         }
         
-        .research-card:hover .research-card-img img {
+        .news-card:hover .news-card-img img {
             transform: scale(1.05);
         }
         
-        .research-card-content {
+        .news-card-content {
             padding: var(--spacing-md);
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
         }
         
-        .research-card-content h3 {
+        .news-card-content h3 {
             margin-top: 0;
             color: var(--primary-color);
             font-size: 1.3rem;
             margin-bottom: var(--spacing-sm);
+            line-height: 1.3;
         }
 
-        /* Gallery grid */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: var(--spacing-md);
-            padding: var(--spacing-md) 0;
+        .news-card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-sm);
+            font-size: 0.9rem;
+            color: var(--accent-color);
         }
-        
-        .gallery-grid img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
+
+        .news-card-date {
+            font-weight: 500;
+        }
+
+        .news-card-category {
+            background: var(--secondary-color);
+            color: var(--text-light);
+            padding: 0.2rem 0.5rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        body.dark .news-card-category {
+            background: var(--accent-color);
+            color: var(--secondary-color);
+        }
+
+        .news-card-summary {
+            margin-bottom: var(--spacing-md);
+            flex-grow: 1;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .news-card-content {
+            white-space: pre-line;
+            margin-top: var(--spacing-md);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .news-card.expanded .news-card-summary {
+            display: none;
+        }
+
+        .news-card.expanded .news-card-content {
+            display: block;
+        }
+
+        .news-card:not(.expanded) .news-card-content {
+            display: none;
+        }
+
+        .read-more-btn {
+            align-self: flex-start;
+            background: var(--secondary-color);
+            color: var(--text-light);
+            border: none;
+            padding: 0.5rem 1rem;
             border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-            transition: var(--transition);
             cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            font-size: 0.9rem;
         }
 
-        .gallery-grid img:hover {
-            transform: scale(1.02);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        .read-more-btn:hover {
+            background: var(--accent-hover);
+            transform: translateY(-1px);
+        }
+
+        body.dark .read-more-btn {
+            background: var(--accent-color);
+            color: var(--secondary-color);
+        }
+
+        body.dark .read-more-btn:hover {
+            background: var(--accent-hover);
         }
 
         /* Footer */
@@ -329,12 +392,12 @@
                 transform: rotate(-45deg) translate(5px, -6px);
             }
 
-            .research-grid {
+            .news-grid {
                 grid-template-columns: 1fr;
             }
 
-            .gallery-grid {
-                grid-template-columns: repeat(2, 1fr);
+            body.dark .nav-links {
+                background-color: var(--header-bg);
             }
         }
     </style>
@@ -378,24 +441,12 @@
     <section class="section section-light">
         <div class="container">
             <div class="section-title">
-                <h2>Research Areas</h2>
+                <h2>Lab News</h2>
             </div>
             <div class="section-subtitle">
-                Exploring perception, estimation, control, and multi-robot autonomy for extreme environments.
+                Stay updated with the latest developments, achievements, and announcements from the SRGElab team.
             </div>
-            <div class="research-grid" id="researchGrid"></div>
-        </div>
-    </section>
-
-    <section class="section">
-        <div class="container">
-            <div class="section-title">
-                <h2>Gallery</h2>
-            </div>
-            <div class="section-subtitle">
-                Images from our research lab and ongoing projects.
-            </div>
-            <div id="researchGallery" class="gallery-grid"></div>
+            <div id="newsList" class="news-grid"></div>
         </div>
     </section>
 
@@ -434,44 +485,66 @@
                 if (siteLogo) siteLogo.src = isDark ? 'assets/Copy of SRGE Lab-White 1.png' : 'assets/Copy of SRGE Lab_black 1.png';
             });
 
-            // Research areas
-            fetch('./data/research_areas.json').then(r => r.json()).then(areas => {
-                const grid = document.getElementById('researchGrid');
-                grid.innerHTML = areas.map(a => `
-                    <div class="research-card">
-                        <div class="research-card-img">
-                            <img src="${a.image || 'assets/placeholder/robot.svg'}" alt="${a.title}" onerror="this.src='assets/placeholder/robot.svg'"/>
-                        </div>
-                        <div class="research-card-content">
-                            <h3>${a.title}</h3>
-                            <p>${a.description || ''}</p>
+            // Format date function
+            function formatDate(dateString) {
+                const options = { year: 'numeric', month: 'long', day: 'numeric' };
+                return new Date(dateString).toLocaleDateString('en-US', options);
+            }
+
+            // Populate News dynamically
+            fetch('./data/news.json').then(r => r.json()).then(news => {
+                const list = document.getElementById('newsList');
+                if (!list) return;
+                
+                // Sort news by date (newest first)
+                news.sort((a, b) => new Date(b.date) - new Date(a.date));
+                
+                list.innerHTML = news.map((item, i) => `
+                    <div class="news-card" id="news-${i}">
+                        ${item.image ? `
+                            <div class="news-card-img">
+                                <img src="${item.image}" alt="${item.title}" onerror="this.src='assets/placeholder/robot.svg'"/>
+                            </div>
+                        ` : ''}
+                        <div class="news-card-content">
+                            <div class="news-card-meta">
+                                <span class="news-card-date">${formatDate(item.date)}</span>
+                                <span class="news-card-category">${item.category}</span>
+                            </div>
+                            <h3>${item.title}</h3>
+                            <div class="news-card-summary">${item.summary}</div>
+                            <div class="news-card-content">${item.content}</div>
+                            <button class="read-more-btn" data-news-id="news-${i}">Read More</button>
                         </div>
                     </div>
                 `).join('');
+
+                // Add read more functionality
+                list.querySelectorAll('.read-more-btn').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const newsId = btn.getAttribute('data-news-id');
+                        const newsCard = document.getElementById(newsId);
+                        const isExpanded = newsCard.classList.contains('expanded');
+                        
+                        if (isExpanded) {
+                            newsCard.classList.remove('expanded');
+                            btn.textContent = 'Read More';
+                        } else {
+                            newsCard.classList.add('expanded');
+                            btn.textContent = 'Read Less';
+                        }
+                    });
+                });
             }).catch(() => {
-                // If data loading fails, show a fallback
-                document.getElementById('researchGrid').innerHTML = `
-                    <div class="research-card">
-                        <div class="research-card-content">
-                            <h3>Research Areas Coming Soon</h3>
-                            <p>Our research information is being updated. Please check back soon.</p>
+                // If data loading fails, show a message
+                document.getElementById('newsList').innerHTML = `
+                    <div class="news-card">
+                        <div class="news-card-content">
+                            <h3>News Coming Soon</h3>
+                            <div class="news-card-summary">Stay tuned for updates from the SRGElab team!</div>
                         </div>
                     </div>
                 `;
-            });
-
-            // Gallery
-            fetch('./data/research_gallery.json').then(r => r.json()).then(list => {
-                const gal = document.getElementById('researchGallery');
-                gal.innerHTML = list.map(src => `
-                    <img src="${src}" alt="Research image" onerror="this.src='assets/placeholder/robot.svg'"/>
-                `).join('');
-            }).catch(() => {
-                // If data loading fails, show placeholder images
-                const gal = document.getElementById('researchGallery');
-                gal.innerHTML = Array(8).fill().map(() => `
-                    <img src="assets/placeholder/robot.svg" alt="Research placeholder"/>
-                `).join('');
             });
         });
     </script>
