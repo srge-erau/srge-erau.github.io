@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Team | SRGElab</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
+  <title>Team | SRGElab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
         :root {
             --primary-color: #00529c;
             --secondary-color: #fbcc06;
@@ -241,7 +241,7 @@
         
         .team-member-img {
             width: 100%;
-            aspect-ratio: 1 / 1;
+            aspect-ratio: 4 / 5;
             overflow: hidden;
             position: relative;
         }
@@ -393,25 +393,25 @@
                 max-width: 85vw; 
             }
         }
-    </style>
+  </style>
 </head>
 <body>
     <header id="header">
-        <div class="container">
-            <nav>
-                <div class="logo-container">
+    <div class="container">
+      <nav>
+        <div class="logo-container">
                     <img id="siteLogo" class="logo" src="assets/Copy of SRGE Lab_black 1.png" alt="SRGElab logo" style="height:50px; width:auto; object-fit:contain" />
-                    <div class="site-title">SRGE<span>lab</span></div>
-                </div>
+          <div class="site-title">SRGE<span>lab</span></div>
+        </div>
                 
-                <ul class="nav-links" id="navLinks">
-                    <li><a href="./index.html#home">Home</a></li>
-                    <li><a href="./research.html">Research</a></li>
-                    <li><a href="./publications.html">Publications</a></li>
-                    <li><a href="./team.html">Team</a></li>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="./index.html#home">Home</a></li>
+          <li><a href="./research.html">Research</a></li>
+          <li><a href="./publications.html">Publications</a></li>
+          <li><a href="./team.html">Team</a></li>
                     <li><a href="./news.html">News</a></li>
-                    <li><a href="./index.html#contact">Contact</a></li>
-                </ul>
+          <li><a href="./index.html#contact">Contact</a></li>
+        </ul>
 
                 <div class="menu-toggle" id="menuToggle">
                     <span></span>
@@ -427,12 +427,12 @@
                         border-color: var(--secondary-color);
                     }
                 </style>
-            </nav>
-        </div>
-    </header>
+      </nav>
+    </div>
+  </header>
 
-    <section class="section section-light">
-        <div class="container">
+  <section class="section section-light">
+    <div class="container">
             <div class="section-title">
                 <h2>Our Team</h2>
             </div>
@@ -442,7 +442,7 @@
             
             <!-- Team grid horizontally scrollable -->
             <div class="scroll-container">
-                <div class="team-grid" id="teamGrid"></div>
+      <div class="team-grid" id="teamGrid"></div>
             </div>
             
             <!-- Scroll indicators for team -->
@@ -458,19 +458,19 @@
                     </svg>
                 </div>
             </div>
-        </div>
-    </section>
+    </div>
+  </section>
 
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <p>&copy; 2025 Space Robotics and Generative Estimation Lab</p>
-                <p>Embry-Riddle Aeronautical University</p>
-            </div>
-        </div>
-    </footer>
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <p>&copy; 2025 Space Robotics and Generative Estimation Lab</p>
+        <p>Embry-Riddle Aeronautical University</p>
+      </div>
+    </div>
+  </footer>
 
-    <script>
+  <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Team section scroll controls
             const teamContainer = document.querySelector('.scroll-container');
@@ -486,8 +486,8 @@
             });
             
             // Menu toggle for mobile
-            const menuToggle = document.getElementById('menuToggle');
-            const navLinks = document.getElementById('navLinks');
+      const menuToggle = document.getElementById('menuToggle');
+      const navLinks = document.getElementById('navLinks');
             
             menuToggle.addEventListener('click', () => {
                 navLinks.classList.toggle('active');
@@ -495,23 +495,23 @@
             });
 
             // Theme toggle + logo swap
-            const themeToggle = document.getElementById('themeToggle');
-            const siteLogo = document.getElementById('siteLogo');
-            const savedTheme = localStorage.getItem('theme');
+      const themeToggle = document.getElementById('themeToggle');
+      const siteLogo = document.getElementById('siteLogo');
+      const savedTheme = localStorage.getItem('theme');
             if (savedTheme === 'dark') {
                 document.body.classList.add('dark');
                 if (siteLogo) siteLogo.src = 'assets/Copy of SRGE Lab-White 1.png';
             }
-            themeToggle.addEventListener('click', () => {
-                document.body.classList.toggle('dark');
+      themeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark');
                 const isDark = document.body.classList.contains('dark');
                 localStorage.setItem('theme', isDark ? 'dark' : 'light');
                 if (siteLogo) siteLogo.src = isDark ? 'assets/Copy of SRGE Lab-White 1.png' : 'assets/Copy of SRGE Lab_black 1.png';
             });
 
             // Populate Team dynamically
-            fetch('./data/team.json').then(r => r.json()).then(team => {
-                const grid = document.getElementById('teamGrid');
+      fetch('./data/team.json').then(r => r.json()).then(team => {
+        const grid = document.getElementById('teamGrid');
 
                 // Seniority sort: Kilic first, then PhD, then Master's, then Undergraduate, then others
                 const rank = role => {
@@ -554,20 +554,20 @@
                     const firstSrc = candidates[0];
                     const rest = candidates.slice(1).join('|');
                     return `
-                    <div class="team-member">
-                        <div class="team-member-img">
+          <div class="team-member">
+            <div class="team-member-img">
                             <img src="${firstSrc}" data-candidates="${rest}" alt="${member.name}">
-                        </div>
-                        <div class="team-member-info">
-                            <h3>${member.name}</h3>
-                            <p class="team-member-role">${member.role}</p>
-                            <p>${member.bio || ''}</p>
+            </div>
+            <div class="team-member-info">
+              <h3>${member.name}</h3>
+              <p class="team-member-role">${member.role}</p>
+              <p>${member.bio || ''}</p>
                             <div class="team-member-contact">
                                 ${member.email ? `<a href="mailto:${member.email}">${member.email}</a>` : ''}
                                 ${member.linkedin ? `${member.email ? ' · ' : ''}<a href="${member.linkedin}" target="_blank" rel="noopener">LinkedIn</a>` : ''}
                             </div>
                         </div>
-                    </div>
+            </div>
                     `;
                 }).join('');
 
@@ -585,7 +585,7 @@
                     }, { once: false });
                 });
             }).catch(() => {});
-        });
-    </script>
+    });
+  </script>
 </body>
 </html>
