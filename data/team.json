@@ -7,59 +7,125 @@
     "bio": "Specializes in state estimation and navigation for planetary exploration robots."
   },
   {
-    "name": "Tuba Girgin",
-    "role": "Research Assistant – PhD Student",
-    "email": "cibukgig@my.erau.edu",
-    "photo": "assets/team/tuba_girgin.jpg",
-    "bio": "ROS, robot learning, and deep learning for autonomous navigation and manipulation on planetary surfaces."
-  },
-  {
-    "name": "Emre Girgin",
-    "role": "PhD Student",
-    "email": "girgine@my.erau.edu",
-    "photo": "assets/team/emre_girgin.jpg",
-    "bio": "Computer Vision / Deep Learning / Robotics."
-  },
-  {
-    "name": "Leia Spaniak",
-    "role": "Research Assistant – Master's Student",
-    "email": "spaniakl@my.erau.edu",
-    "photo": "assets/team/leia_spaniak.jpg",
-    "bio": "Integrating biologically inspired design in cybersecurity methods for aerospace navigation."
-  },
-  {
-    "name": "Benjamin Heckel",
-    "role": "Research Assistant – Master's Student",
-    "email": "",
-    "photo": "",
-    "bio": "Researcher in space robotics."
-  },
-  {
-    "name": "Jasmine Nakladov",
-    "role": "Research Assistant – Master's Student",
-    "email": "nakladoj@my.erau.edu",
-    "photo": "assets/team/jasmine_nakladov.jpg",
-    "bio": "Dynamics and controls for autonomous robot navigation."
-  },
-  {
     "name": "Sean McConoughey",
     "role": "Research Assistant – Undergraduate Student",
     "email": "mcconous@my.erau.edu",
     "photo": "assets/team/seanmcconoughey1.jpg",
-    "bio": "Cybersecurity for robotics and autonomous exploration systems."
+    "bio": "Cybersecurity researcher focused on enhancing cyber resilience in robotics and autonomous exploration systems. Experienced in securing aerospace and embedded systems against emerging threats."
+  },
+  {
+    "name": "Tuba Girgin",
+    "role": "Graduate Research Assistant – PhD Student",
+    "email": "cibukgig@my.erau.edu",
+    "photo": "assets/team/tuba_girgin.jpg",
+    "bio": "Robotics researcher specializing in ROS, robot learning, and deep learning for autonomous robot navigation and manipulation on planetary surfaces. Experienced in designing deep neural network architectures, including graph neural networks, for robot learning applications."
+  },
+  {
+    "name": "Emre Girgin",
+    "role": "Graduate Research Assistant - PhD Student",
+    "email": "girgine@my.erau.edu",
+    "photo": "assets/team/emre_girgin.jpg",
+    "bio": "Computer Vision / Deep Learning / Robotics"
+  },
+  {
+    "name": "Leia Spaniak",
+    "role": "Master’s Student",
+    "email": "spaniakl@my.erau.edu",
+    "photo": "assets/team/leia_spaniak.jpg",
+    "linkedin": "https://www.linkedin.com/in/leiaspaniak",
+    "bio": "Researcher focused on integrating biologically inspired design in cybersecurity methods for aerospace navigation."
+  },
+  {
+    "name": "Jasmine Nakladov",
+    "role": "Master's Student",
+    "email": "nakladoj@my.erau.edu",
+    "photo": "assets/team/jasmine_nakladov.jpg",
+    "bio": "Dynamics and controls researcher focused on designing control systems to aid in autonomous robot navigation. Experienced in rover design and spacecraft control and trajectory development."
   },
   {
     "name": "Eeman Abid",
-    "role": "Research Assistant – Undergraduate Student",
+    "role": "Research Assistant – Undergraduate Student in Aerospace Engineering with a minor in Computer Science",
     "email": "abide@my.erau.edu",
     "photo": "assets/team/eeman_abid.jpg",
-    "bio": "Swarm robots for planetary exploration and machine learning methods."
+    "linkedin": "https://www.linkedin.com/in/eeman-abid",
+    "bio": "Space Robotics researcher with a focus in hybrid hierarchical swarm robots for planetary exploration along with different machine learning methods like unsupervised segmentation."
   },
   {
     "name": "Deanna Paladino",
-    "role": "Research Assistant – Undergraduate Student",
+    "role": "Research Assistant – Undergraduate Student in Aerospace Engineering",
     "email": "paladind@my.erau.edu",
     "photo": "assets/team/deanna_paladino.jpg",
-    "bio": "Object manipulation, robotic pushing, and inverse kinematics."
+    "linkedin": "https://www.linkedin.com/in/deanna-paladino",
+    "bio": "Researcher in space robotics focusing on object manipulation, robotic pushing solutions, and inverse kinematics, with some research in image capturing and segmentation."
+  },
+  {
+    "name": "Karthik Kolipaka",
+    "role": "Research Assistant – Undergraduate Student",
+    "email": "kolipakk@my.erau.edu",
+    "photo": "",
+    "bio": "Undergraduate researcher focused on multi-robot systems, robotic system integration, robot kinematics, obstacle pushing affordance, and operational testing based on tactile and visual analysis in simulated planetary environments."
+  },
+  {
+    "name": "Dheer Chhabria",
+    "role": "Research Assistant - Undergraduate Student in Aerospace Engineering with a Minor in Computer Science",
+    "email": "chhabrid@my.erau.edu",
+    "photo": "",
+    "linkedin": "https://www.linkedin.com/in/dheer-chhabria",
+    "bio": "Space Robotics researcher focusing on quadruped robotics and developing their electronics, as well as the development and implementation of various sensor systems."
+  },
+  {
+    "name": "Benjamin Heckel",
+    "role": "Research Assistant – Undergraduate Student in Aerospace Engineering (Accelerated bachelor’s to master’s)",
+    "email": "heckelb@my.erau.edu",
+    "photo": "",
+    "linkedin": "https://www.linkedin.com/in/benjamin-heckel",
+    "bio": "Space Robotics researcher focused on bio-inspired end-effector design to improve robotic mobility in planetary environments."
+  },
+  {
+    "name": "Haitish Gandhi",
+    "role": "Undergraduate Researcher – Student in Aerospace Engineering Honors, with minors in Computer Aided Design/Manufacturing and Applied Mathematics.",
+    "email": "gandhih@my.erau.edu",
+    "photo": "",
+    "linkedin": "https://www.linkedin.com/in/haitish-gandhi",
+    "bio": "Researching different locomotive methods in space robotics and working on integrating a quadruped and quadcopter into one hybrid locomotion used for planetary exploration. Project name: HyDroQuad."
+  },
+  {
+    "name": "Nicolas Bonasoro",
+    "role": "Research Assistant – Undergraduate Student in Aerospace Engineering with an Associate Degree in Applied Science – Business Administration",
+    "email": "bonasorn@my.erau.edu",
+    "photo": "",
+    "linkedin": "https://www.linkedin.com/in/nicolas-bonasoro",
+    "bio": "Undergraduate Aerospace Engineering student researching lunar terrain operations and autonomous navigation. Work includes lunar habitat design, terramechanics, rover path planning and excavation, and improving safety in space operations."
+  },
+  {
+    "name": "Henry Vu",
+    "role": "Undergraduate Student in Aerospace Engineering",
+    "email": "vuh3@my.erau.edu",
+    "photo": "",
+    "bio": "Electronics lead in the Experimental Rocket Propulsion Lab; designing flight avionics and instrumentation systems."
+  },
+  {
+    "name": "Akash Joseph",
+    "role": "Master’s student in Aerospace Engineering",
+    "email": "josepha8@my.erau.edu",
+    "photo": "",
+    "linkedin": "https://www.linkedin.com/in/akash-joseph",
+    "bio": "Astrodynamics researcher focused on space situational awareness and orbital estimation for deploying spacecraft constellation systems in the cislunar region."
+  },
+  {
+    "name": "James Kirk",
+    "role": "Research Assistant - Undergraduate Student in Aerospace Engineering",
+    "email": "kirkj15@my.erau.edu",
+    "photo": "",
+    "linkedin": "https://www.linkedin.com/in/james-kirk",
+    "bio": "Researcher using ANSYS STK to design and improve lunar satellite infrastructure for lunar mission safety in STK. Scenario designs include improved communication and coverage of the lunar surface as well as debris tracking capabilities."
+  },
+  {
+    "name": "Kylie Nager",
+    "role": "Research Assistant – Undergraduate Student in Aerospace Engineering",
+    "email": "nagerk1@my.erau.edu",
+    "photo": "",
+    "linkedin": "https://www.linkedin.com/in/kylie-nager",
+    "bio": "Systems-oriented CubeSat resilience researcher focused on advancing the reliability and robustness of CubeSat design to ensure mission success through architecture, estimator-aware fault management, and V&V, applicable across subsystems."
   }
 ]

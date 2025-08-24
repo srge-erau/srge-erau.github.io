@@ -1024,19 +1024,71 @@
             // Populate Team dynamically
             fetch('./data/team.json').then(r => r.json()).then(team => {
                 const grid = document.getElementById('teamGrid');
-                grid.innerHTML = team.map(member => `
+
+                // Seniority sort: Kilic first, then PhD, then Master's, then Undergraduate, then others
+                const rank = role => {
+                    const r = (role || '').toLowerCase();
+                    if (r.includes('lab director') || r.includes('director') || r.includes('kilic')) return 0;
+                    if (r.includes('phd')) return 1;
+                    if (r.includes("master")) return 2;
+                    if (r.includes('undergraduate')) return 3;
+                    return 4;
+                };
+                const bySeniority = [...team].sort((a, b) => {
+                    const ar = rank(a.role);
+                    const br = rank(b.role);
+                    if (ar !== br) return ar - br;
+                    return (a.name || '').localeCompare(b.name || '');
+                });
+
+                grid.innerHTML = bySeniority.map(member => {
+                    const base = (member.name || '')
+                        .toLowerCase()
+                        .normalize('NFD').replace(/\p{Diacritic}/gu, '')
+                        .replace(/[^a-z0-9]+/g, '_')
+                        .replace(/^_|_$/g, '');
+                    const candidates = [
+                        member.photo && member.photo.trim() ? member.photo.trim() : `assets/team/${base}.jpg`,
+                        `assets/team/${base}.jpeg`,
+                        `assets/team/${base}.png`,
+                        // Also check singular 'asset' directory in case files were placed there
+                        `asset/team/${base}.jpg`,
+                        `asset/team/${base}.jpeg`,
+                        `asset/team/${base}.png`
+                    ];
+                    const firstSrc = candidates[0];
+                    const rest = candidates.slice(1).join('|');
+                    return `
                     <div class="team-member">
                         <div class="team-member-img">
-                            <img src="${member.photo || 'assets/placeholder/robot.svg'}" alt="${member.name}" onerror="this.src='assets/placeholder/robot.svg'">
+                            <img src="${firstSrc}" data-candidates="${rest}" alt="${member.name}">
                         </div>
                         <div class="team-member-info">
                             <h3>${member.name}</h3>
                             <p class="team-member-role">${member.role}</p>
                             <p>${member.bio || ''}</p>
-                            ${member.email ? `<div class="team-member-contact"><a href="mailto:${member.email}">${member.email}</a></div>` : ''}
+                            <div class="team-member-contact">
+                                ${member.email ? `<a href="mailto:${member.email}">${member.email}</a>` : ''}
+                                ${member.linkedin ? `${member.email ? ' · ' : ''}<a href="${member.linkedin}" target="_blank" rel="noopener">LinkedIn</a>` : ''}
+                            </div>
                         </div>
                     </div>
-                `).join('');
+                    `;
+                }).join('');
+
+                // Fallback image loader: try .jpg -> .jpeg -> .png then placeholder
+                grid.querySelectorAll('.team-member-img img').forEach(img => {
+                    img.addEventListener('error', () => {
+                        const list = (img.getAttribute('data-candidates') || '').split('|').filter(Boolean);
+                        if (list.length) {
+                            const next = list.shift();
+                            img.setAttribute('data-candidates', list.join('|'));
+                            img.src = next;
+                        } else {
+                            img.src = 'assets/placeholder/robot.svg';
+                        }
+                    }, { once: false });
+                });
             }).catch(() => {});
 
             // Populate Publications dynamically with embeds
