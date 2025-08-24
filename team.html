@@ -530,20 +530,27 @@
                 });
 
                 grid.innerHTML = bySeniority.map(member => {
-                    const base = (member.name || '')
-                        .toLowerCase()
-                        .normalize('NFD').replace(/\p{Diacritic}/gu, '')
-                        .replace(/[^a-z0-9]+/g, '_')
-                        .replace(/^_|_$/g, '');
-                    const candidates = [
-                        member.photo && member.photo.trim() ? member.photo.trim() : `assets/team/${base}.jpg`,
-                        `assets/team/${base}.jpeg`,
-                        `assets/team/${base}.png`,
-                        // Also check singular 'asset' directory in case files were placed there
-                        `asset/team/${base}.jpg`,
-                        `asset/team/${base}.jpeg`,
-                        `asset/team/${base}.png`
-                    ];
+                    const raw = (member.name || '').toLowerCase().normalize('NFD').replace(/\p{Diacritic}/gu, '');
+                    const parts = raw.split(/[^a-z0-9]+/).filter(Boolean);
+                    const first = parts[0] || '';
+                    const last = parts.length > 1 ? parts[parts.length - 1] : '';
+                    const base = raw.replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, '');
+                    const concat = (first && last) ? `${first}${last}` : first;
+
+                    let primary = [];
+                    if (member.photo && member.photo.trim()) primary.push(member.photo.trim());
+                    // Standard patterns
+                    primary.push(`assets/team/${base}.jpg`, `assets/team/${base}.jpeg`, `assets/team/${base}.png`);
+                    // First or last only
+                    if (first) primary.push(`assets/team/${first}.jpg`, `assets/team/${first}.jpeg`, `assets/team/${first}.png`);
+                    if (last) primary.push(`assets/team/${last}.jpg`, `assets/team/${last}.jpeg`, `assets/team/${last}.png`);
+                    // Concatenated firstlast (no underscore)
+                    if (concat) primary.push(`assets/team/${concat}.jpg`, `assets/team/${concat}.jpeg`, `assets/team/${concat}.png`);
+                    // dr_last pattern
+                    if (last) primary.push(`assets/team/dr_${last}.jpg`, `assets/team/dr_${last}.jpeg`, `assets/team/dr_${last}.png`);
+                    // Also check singular 'asset' directory for all patterns
+                    const secondary = primary.map(p => p.replace(/^assets\//, 'asset/'));
+                    const candidates = [...primary, ...secondary];
                     const firstSrc = candidates[0];
                     const rest = candidates.slice(1).join('|');
                     return `
