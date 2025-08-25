@@ -128,4 +128,13 @@
     "linkedin": "https://www.linkedin.com/in/kylie-nager",
     "bio": "Systems-oriented CubeSat resilience researcher focused on advancing the reliability and robustness of CubeSat design to ensure mission success through architecture, estimator-aware fault management, and V&V, applicable across subsystems."
   }
+  ,
+  {
+    "name": "Jose Walker Demedeiros",
+    "role": "Research Assistant",
+    "email": "demedeij@my.erau.edu",
+    "photo": "",
+    "linkedin": "",
+    "bio": "Space Robotics researcher focusing on mixed sensor integration for spatial mapping and awareness including quadrupeds, rovers and micro-drones."
+  }
 ]
