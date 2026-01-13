@@ -875,37 +875,6 @@
         </div>
     </section>
 
-    <!-- Team Section -->
-    <section class="section section-light" id="team">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Team</h2>
-            </div>
-            <div class="section-subtitle">
-                Meet the brilliant minds behind our cutting-edge research in space robotics and generative estimation.
-            </div>
-            
-            <!-- Team grid now populated dynamically -->
-            <div class="scroll-container">
-                <div class="team-grid" id="teamGrid"></div>
-            </div>
-            
-            <!-- Scroll indicators for team -->
-            <div class="scroll-indicators">
-                <div class="scroll-indicator team-scroll-left">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M15 19L8 12L15 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </div>
-                <div class="scroll-indicator team-scroll-right">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M9 5L16 12L9 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="section" id="contact">
         <div class="container">
             <div class="section-title">
@@ -984,19 +953,6 @@
                 researchContainer.scrollBy({ left: 400, behavior: 'smooth' });
             });
             
-            // Team section scroll controls
-            const teamContainer = document.querySelector('#team .scroll-container');
-            const leftTeamBtn = document.querySelector('.team-scroll-left');
-            const rightTeamBtn = document.querySelector('.team-scroll-right');
-            
-            leftTeamBtn.addEventListener('click', () => {
-                teamContainer.scrollBy({ left: -400, behavior: 'smooth' });
-            });
-            
-            rightTeamBtn.addEventListener('click', () => {
-                teamContainer.scrollBy({ left: 400, behavior: 'smooth' });
-            });
-            
             // Menu toggle for mobile
             const menuToggle = document.getElementById('menuToggle');
             const navLinks = document.getElementById('navLinks');
@@ -1020,83 +976,6 @@
                 localStorage.setItem('theme', isDark ? 'dark' : 'light');
                 if (siteLogo) siteLogo.src = isDark ? 'assets/Copy of SRGE Lab-White 1.png' : 'assets/Copy of SRGE Lab_black 1.png';
             });
-
-            // Populate Team dynamically
-            fetch('./data/team.json').then(r => r.json()).then(team => {
-                const grid = document.getElementById('teamGrid');
-
-                // Seniority sort: Kilic first, then PhD, then Master's, then Undergraduate, then others
-                const rank = role => {
-                    const r = (role || '').toLowerCase();
-                    if (r.includes('lab director') || r.includes('director') || r.includes('kilic')) return 0;
-                    if (r.includes('phd')) return 1;
-                    if (r.includes("master")) return 2;
-                    if (r.includes('undergraduate')) return 3;
-                    return 4;
-                };
-                const bySeniority = [...team].sort((a, b) => {
-                    const ar = rank(a.role);
-                    const br = rank(b.role);
-                    if (ar !== br) return ar - br;
-                    return (a.name || '').localeCompare(b.name || '');
-                });
-
-                grid.innerHTML = bySeniority.map(member => {
-                    const raw = (member.name || '').toLowerCase().normalize('NFD').replace(/\p{Diacritic}/gu, '');
-                    const parts = raw.split(/[^a-z0-9]+/).filter(Boolean);
-                    const first = parts[0] || '';
-                    const last = parts.length > 1 ? parts[parts.length - 1] : '';
-                    const base = raw.replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, '');
-                    const concat = (first && last) ? `${first}${last}` : first;
-
-                    let primary = [];
-                    if (member.photo && member.photo.trim()) primary.push(member.photo.trim());
-                    // Standard patterns
-                    primary.push(`assets/team/${base}.jpg`, `assets/team/${base}.jpeg`, `assets/team/${base}.png`);
-                    // First or last only
-                    if (first) primary.push(`assets/team/${first}.jpg`, `assets/team/${first}.jpeg`, `assets/team/${first}.png`);
-                    if (last) primary.push(`assets/team/${last}.jpg`, `assets/team/${last}.jpeg`, `assets/team/${last}.png`);
-                    // Concatenated firstlast (no underscore)
-                    if (concat) primary.push(`assets/team/${concat}.jpg`, `assets/team/${concat}.jpeg`, `assets/team/${concat}.png`);
-                    // dr_last pattern
-                    if (last) primary.push(`assets/team/dr_${last}.jpg`, `assets/team/dr_${last}.jpeg`, `assets/team/dr_${last}.png`);
-                    // Also check singular 'asset' directory for all patterns
-                    const secondary = primary.map(p => p.replace(/^assets\//, 'asset/'));
-                    const candidates = [...primary, ...secondary];
-                    const firstSrc = candidates[0];
-                    const rest = candidates.slice(1).join('|');
-                    return `
-                    <div class="team-member">
-                        <div class="team-member-img">
-                            <img src="${firstSrc}" data-candidates="${rest}" alt="${member.name}">
-                        </div>
-                        <div class="team-member-info">
-                            <h3>${member.name}</h3>
-                            <p class="team-member-role">${member.role}</p>
-                            <p>${member.bio || ''}</p>
-                            <div class="team-member-contact">
-                                ${member.email ? `<a href="mailto:${member.email}">${member.email}</a>` : ''}
-                                ${member.linkedin ? `${member.email ? ' · ' : ''}<a href="${member.linkedin}" target="_blank" rel="noopener">LinkedIn</a>` : ''}
-                            </div>
-                        </div>
-                    </div>
-                    `;
-                }).join('');
-
-                // Fallback image loader: try .jpg -> .jpeg -> .png then placeholder
-                grid.querySelectorAll('.team-member-img img').forEach(img => {
-                    img.addEventListener('error', () => {
-                        const list = (img.getAttribute('data-candidates') || '').split('|').filter(Boolean);
-                        if (list.length) {
-                            const next = list.shift();
-                            img.setAttribute('data-candidates', list.join('|'));
-                            img.src = next;
-                        } else {
-                            img.src = 'assets/placeholder/robot.svg';
-                        }
-                    }, { once: false });
-                });
-            }).catch(() => {});
 
             // Populate Publications dynamically with embeds
             fetch('./data/papers.json').then(r => r.json()).then(pubs => {

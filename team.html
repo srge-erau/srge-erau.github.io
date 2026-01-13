@@ -192,41 +192,79 @@
             font-size: 1.1rem;
         }
 
-        /* Scrollable sections */
-        .scroll-container {
-            width: 100%;
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-            scrollbar-width: thin;
-            padding-bottom: 16px;
-        }
-        
-        .scroll-container::-webkit-scrollbar {
-            height: 8px;
-        }
-        
-        .scroll-container::-webkit-scrollbar-track {
-            background: rgba(0, 0, 0, 0.1);
-            border-radius: 4px;
-        }
-        
-        .scroll-container::-webkit-scrollbar-thumb {
-            background: var(--accent-color);
-            border-radius: 4px;
+        /* Team Section Headers */
+        .team-section-header {
+            margin: var(--spacing-xl) 0 var(--spacing-lg);
+            text-align: center;
         }
 
-        .team-grid {
-            display: flex;
-            flex-wrap: nowrap;
+        .team-section-header:first-of-type {
+            margin-top: var(--spacing-lg);
+        }
+
+        .team-section-header h3 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin: 0;
+            position: relative;
+            display: inline-block;
+        }
+
+        .team-section-header h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+
+        /* Grid layout for team members */
+        .team-grid-static {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: var(--spacing-lg);
             padding: var(--spacing-md) 0;
-            min-width: min-content;
         }
-        
+
+        /* Director featured card */
+        .director-grid {
+            display: flex;
+            justify-content: center;
+            padding: var(--spacing-md) 0;
+        }
+
+        .director-card {
+            width: 350px;
+            max-width: 100%;
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .director-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        .director-card .team-member-img {
+            aspect-ratio: 4 / 5;
+        }
+
+        .director-card .team-member-info {
+            padding: 1.75rem;
+        }
+
+        .director-card .team-member-info h3 {
+            font-size: 1.5rem;
+        }
+
+        /* Standard team member cards */
         .team-member {
-            flex: 0 0 auto;
-            width: 280px;
-            max-width: none;
             background: var(--card-bg);
             border-radius: 8px;
             overflow: hidden;
@@ -238,14 +276,14 @@
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
         }
-        
+
         .team-member-img {
             width: 100%;
             aspect-ratio: 4 / 5;
             overflow: hidden;
             position: relative;
         }
-        
+
         .team-member-img img {
             width: 100%;
             height: 100%;
@@ -253,22 +291,23 @@
             object-position: 50% 35%;
             transition: all 0.3s ease;
         }
-        
-        .team-member:hover .team-member-img img {
+
+        .team-member:hover .team-member-img img,
+        .director-card:hover .team-member-img img {
             transform: scale(1.05);
         }
-        
+
         .team-member-info {
             padding: 1.5rem;
         }
-        
+
         .team-member-info h3 {
             margin-top: 0;
             color: var(--primary-color);
             font-size: 1.25rem;
             font-weight: 700;
         }
-        
+
         .team-member-role {
             color: var(--secondary-color);
             font-weight: 600;
@@ -277,52 +316,27 @@
             font-size: 0.85rem;
             letter-spacing: 0.5px;
         }
-        
+
         .team-member-info p {
             margin-bottom: 1rem;
             font-size: 0.95rem;
             line-height: 1.5;
         }
-        
+
         .team-member-contact {
             margin-top: 1rem;
         }
-        
+
         .team-member-contact a {
             color: var(--accent-color);
             text-decoration: none;
             transition: all 0.3s ease;
             font-size: 0.9rem;
         }
-        
+
         .team-member-contact a:hover {
             color: var(--accent-hover);
             text-decoration: underline;
-        }
-
-        /* Scroll indicators */
-        .scroll-indicators {
-            display: flex;
-            justify-content: center;
-            gap: var(--spacing-sm);
-            margin-top: var(--spacing-md);
-        }
-        
-        .scroll-indicator {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: var(--accent-color);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-        
-        .scroll-indicator:hover {
-            background: var(--accent-hover);
         }
 
         /* Footer */
@@ -342,7 +356,7 @@
             .menu-toggle {
                 display: flex;
             }
-            
+
             .nav-links {
                 position: absolute;
                 top: 100%;
@@ -359,38 +373,35 @@
                 transition: var(--transition);
                 z-index: 999;
             }
-            
+
             .nav-links.active {
                 transform: translateY(0);
                 opacity: 1;
                 visibility: visible;
             }
-            
+
             .menu-toggle.active span:nth-child(1) {
                 transform: rotate(45deg) translate(5px, 6px);
             }
-            
+
             .menu-toggle.active span:nth-child(2) {
                 opacity: 0;
             }
-            
+
             .menu-toggle.active span:nth-child(3) {
                 transform: rotate(-45deg) translate(5px, -6px);
             }
 
-            /* On mobile, keep horizontal scroll for team */
-            .scroll-container { overflow-x: auto; padding-bottom: 20px; }
-            .team-grid { 
-                display: flex; 
-                flex-wrap: nowrap; 
-                gap: var(--spacing-lg); 
-                min-width: min-content; 
-                padding: var(--spacing-sm) 0;
+            .team-grid-static {
+                grid-template-columns: 1fr;
             }
-            .team-member { 
-                flex: 0 0 auto; 
-                width: 280px; 
-                max-width: 85vw; 
+
+            .director-card {
+                width: 100%;
+            }
+
+            .team-section-header h3 {
+                font-size: 1.5rem;
             }
         }
   </style>
@@ -403,7 +414,7 @@
                     <img id="siteLogo" class="logo" src="assets/Copy of SRGE Lab_black 1.png" alt="SRGElab logo" style="height:50px; width:auto; object-fit:contain" />
           <div class="site-title">SRGE<span>lab</span></div>
         </div>
-                
+
         <ul class="nav-links" id="navLinks">
           <li><a href="./index.html#home">Home</a></li>
           <li><a href="./research.html">Research</a></li>
@@ -439,25 +450,24 @@
             <div class="section-subtitle">
                 Meet the brilliant minds behind our cutting-edge research in space robotics and generative estimation.
             </div>
-            
-            <!-- Team grid horizontally scrollable -->
-            <div class="scroll-container">
-      <div class="team-grid" id="teamGrid"></div>
+
+            <!-- Lab Director Section -->
+            <div class="team-section-header">
+                <h3>Lab Director</h3>
             </div>
-            
-            <!-- Scroll indicators for team -->
-            <div class="scroll-indicators">
-                <div class="scroll-indicator team-scroll-left">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M15 19L8 12L15 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </div>
-                <div class="scroll-indicator team-scroll-right">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M9 5L16 12L9 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </div>
+            <div class="director-grid" id="directorGrid"></div>
+
+            <!-- Graduate Students Section -->
+            <div class="team-section-header">
+                <h3>Graduate Students</h3>
             </div>
+            <div class="team-grid-static" id="graduateGrid"></div>
+
+            <!-- Undergraduate Researchers Section -->
+            <div class="team-section-header">
+                <h3>Undergraduate Researchers</h3>
+            </div>
+            <div class="team-grid-static" id="undergradGrid"></div>
     </div>
   </section>
 
@@ -472,23 +482,10 @@
 
   <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Team section scroll controls
-            const teamContainer = document.querySelector('.scroll-container');
-            const leftTeamBtn = document.querySelector('.team-scroll-left');
-            const rightTeamBtn = document.querySelector('.team-scroll-right');
-            
-            leftTeamBtn.addEventListener('click', () => {
-                teamContainer.scrollBy({ left: -400, behavior: 'smooth' });
-            });
-            
-            rightTeamBtn.addEventListener('click', () => {
-                teamContainer.scrollBy({ left: 400, behavior: 'smooth' });
-            });
-            
             // Menu toggle for mobile
       const menuToggle = document.getElementById('menuToggle');
       const navLinks = document.getElementById('navLinks');
-            
+
             menuToggle.addEventListener('click', () => {
                 navLinks.classList.toggle('active');
                 menuToggle.classList.toggle('active');
@@ -509,70 +506,55 @@
                 if (siteLogo) siteLogo.src = isDark ? 'assets/Copy of SRGE Lab-White 1.png' : 'assets/Copy of SRGE Lab_black 1.png';
             });
 
-            // Populate Team dynamically
-      fetch('./data/team.json').then(r => r.json()).then(team => {
-        const grid = document.getElementById('teamGrid');
+            // Helper function to generate image candidates
+            function getImageCandidates(member) {
+                const raw = (member.name || '').toLowerCase().normalize('NFD').replace(/\p{Diacritic}/gu, '');
+                const parts = raw.split(/[^a-z0-9]+/).filter(Boolean);
+                const first = parts[0] || '';
+                const last = parts.length > 1 ? parts[parts.length - 1] : '';
+                const base = raw.replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, '');
+                const concat = (first && last) ? `${first}${last}` : first;
 
-                // Seniority sort: Kilic first, then PhD, then Master's, then Undergraduate, then others
-                const rank = role => {
-                    const r = (role || '').toLowerCase();
-                    if (r.includes('lab director') || r.includes('director') || r.includes('kilic')) return 0;
-                    if (r.includes('phd')) return 1;
-                    if (r.includes("master")) return 2;
-                    if (r.includes('undergraduate')) return 3;
-                    return 4;
-                };
-                const bySeniority = [...team].sort((a, b) => {
-                    const ar = rank(a.role);
-                    const br = rank(b.role);
-                    if (ar !== br) return ar - br;
-                    return (a.name || '').localeCompare(b.name || '');
-                });
+                let primary = [];
+                if (member.photo && member.photo.trim()) primary.push(member.photo.trim());
+                primary.push(`assets/team/${base}.jpg`, `assets/team/${base}.jpeg`, `assets/team/${base}.png`);
+                if (first) primary.push(`assets/team/${first}.jpg`, `assets/team/${first}.jpeg`, `assets/team/${first}.png`);
+                if (last) primary.push(`assets/team/${last}.jpg`, `assets/team/${last}.jpeg`, `assets/team/${last}.png`);
+                if (concat) primary.push(`assets/team/${concat}.jpg`, `assets/team/${concat}.jpeg`, `assets/team/${concat}.png`);
+                if (last) primary.push(`assets/team/dr_${last}.jpg`, `assets/team/dr_${last}.jpeg`, `assets/team/dr_${last}.png`);
+                const secondary = primary.map(p => p.replace(/^assets\//, 'asset/'));
+                return [...primary, ...secondary];
+            }
 
-                grid.innerHTML = bySeniority.map(member => {
-                    const raw = (member.name || '').toLowerCase().normalize('NFD').replace(/\p{Diacritic}/gu, '');
-                    const parts = raw.split(/[^a-z0-9]+/).filter(Boolean);
-                    const first = parts[0] || '';
-                    const last = parts.length > 1 ? parts[parts.length - 1] : '';
-                    const base = raw.replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, '');
-                    const concat = (first && last) ? `${first}${last}` : first;
+            // Helper function to create member card HTML
+            function createMemberCard(member, isDirector = false) {
+                const candidates = getImageCandidates(member);
+                const firstSrc = candidates[0];
+                const rest = candidates.slice(1).join('|');
 
-                    let primary = [];
-                    if (member.photo && member.photo.trim()) primary.push(member.photo.trim());
-                    // Standard patterns
-                    primary.push(`assets/team/${base}.jpg`, `assets/team/${base}.jpeg`, `assets/team/${base}.png`);
-                    // First or last only
-                    if (first) primary.push(`assets/team/${first}.jpg`, `assets/team/${first}.jpeg`, `assets/team/${first}.png`);
-                    if (last) primary.push(`assets/team/${last}.jpg`, `assets/team/${last}.jpeg`, `assets/team/${last}.png`);
-                    // Concatenated firstlast (no underscore)
-                    if (concat) primary.push(`assets/team/${concat}.jpg`, `assets/team/${concat}.jpeg`, `assets/team/${concat}.png`);
-                    // dr_last pattern
-                    if (last) primary.push(`assets/team/dr_${last}.jpg`, `assets/team/dr_${last}.jpeg`, `assets/team/dr_${last}.png`);
-                    // Also check singular 'asset' directory for all patterns
-                    const secondary = primary.map(p => p.replace(/^assets\//, 'asset/'));
-                    const candidates = [...primary, ...secondary];
-                    const firstSrc = candidates[0];
-                    const rest = candidates.slice(1).join('|');
-                    return `
-          <div class="team-member">
-            <div class="team-member-img">
+                const cardClass = isDirector ? 'director-card' : 'team-member';
+
+                return `
+                    <div class="${cardClass}">
+                        <div class="team-member-img">
                             <img src="${firstSrc}" data-candidates="${rest}" alt="${member.name}">
-            </div>
-            <div class="team-member-info">
-              <h3>${member.name}</h3>
-              <p class="team-member-role">${member.role}</p>
-              <p>${member.bio || ''}</p>
+                        </div>
+                        <div class="team-member-info">
+                            <h3>${member.name}</h3>
+                            <p class="team-member-role">${member.role}</p>
+                            <p>${member.bio || ''}</p>
                             <div class="team-member-contact">
                                 ${member.email ? `<a href="mailto:${member.email}">${member.email}</a>` : ''}
                                 ${member.linkedin ? `${member.email ? ' · ' : ''}<a href="${member.linkedin}" target="_blank" rel="noopener">LinkedIn</a>` : ''}
                             </div>
                         </div>
-            </div>
-                    `;
-                }).join('');
+                    </div>
+                `;
+            }
 
-                // Fallback image loader: try .jpg -> .jpeg -> .png then placeholder
-                grid.querySelectorAll('.team-member-img img').forEach(img => {
+            // Helper function to set up image fallbacks
+            function setupImageFallbacks(container) {
+                container.querySelectorAll('.team-member-img img').forEach(img => {
                     img.addEventListener('error', () => {
                         const list = (img.getAttribute('data-candidates') || '').split('|').filter(Boolean);
                         if (list.length) {
@@ -584,6 +566,58 @@
                         }
                     }, { once: false });
                 });
+            }
+
+            // Populate Team dynamically
+      fetch('./data/team.json').then(r => r.json()).then(team => {
+        const directorGrid = document.getElementById('directorGrid');
+        const graduateGrid = document.getElementById('graduateGrid');
+        const undergradGrid = document.getElementById('undergradGrid');
+
+                // Categorize team members
+                const categorize = role => {
+                    const r = (role || '').toLowerCase();
+                    if (r.includes('lab director') || r.includes('director')) return 'director';
+                    if (r.includes('phd') || r.includes("master")) return 'graduate';
+                    return 'undergraduate';
+                };
+
+                const directors = [];
+                const graduates = [];
+                const undergrads = [];
+
+                team.forEach(member => {
+                    const category = categorize(member.role);
+                    if (category === 'director') directors.push(member);
+                    else if (category === 'graduate') graduates.push(member);
+                    else undergrads.push(member);
+                });
+
+                // Sort graduates: PhD first, then Master's, alphabetically within each
+                const gradRank = role => {
+                    const r = (role || '').toLowerCase();
+                    if (r.includes('phd')) return 0;
+                    return 1;
+                };
+                graduates.sort((a, b) => {
+                    const ar = gradRank(a.role);
+                    const br = gradRank(b.role);
+                    if (ar !== br) return ar - br;
+                    return (a.name || '').localeCompare(b.name || '');
+                });
+
+                // Sort undergrads alphabetically
+                undergrads.sort((a, b) => (a.name || '').localeCompare(b.name || ''));
+
+                // Render each section
+                directorGrid.innerHTML = directors.map(m => createMemberCard(m, true)).join('');
+                graduateGrid.innerHTML = graduates.map(m => createMemberCard(m, false)).join('');
+                undergradGrid.innerHTML = undergrads.map(m => createMemberCard(m, false)).join('');
+
+                // Set up image fallbacks for all sections
+                setupImageFallbacks(directorGrid);
+                setupImageFallbacks(graduateGrid);
+                setupImageFallbacks(undergradGrid);
             }).catch(() => {});
     });
   </script>
