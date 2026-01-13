@@ -1,0 +1,12 @@
+[
+  {
+    "id": "website-launch-2025",
+    "title": "Space Robotics and Generative Estimation Lab launches new website",
+    "date": "2025-01-18",
+    "summary": "SRGElab unveils its new interactive website featuring comprehensive information about our cutting-edge research, team members, and ongoing projects in space robotics and autonomous navigation.",
+    "content": "We are excited to announce the launch of our new website! The updated site provides visitors with an enhanced experience to explore our research areas, meet our talented team members, and stay updated on our latest developments in space robotics and generative estimation.\n\nThe new website features:\n• Interactive research area showcases\n• Comprehensive team member profiles\n• Publication database with PDF embeddings\n• Responsive design for all devices\n• Dark/light mode theming\n\nOur lab continues to push the boundaries of autonomous robotics for space exploration, planetary navigation, and extreme environments through cutting-edge perception and estimation technologies.",
+    "image": "assets/lab/lab-photo-1.jpg",
+    "featured": true,
+    "category": "Lab News"
+  }
+]

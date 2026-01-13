@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News | SRGElab</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #00529c;
+            --secondary-color: #fbcc06;
+            --accent-color: #00529c;
+            --accent-hover: #003d73;
+            --light-bg: #f8f9fa;
+            --dark-bg: #1a1a1a;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            --text-light: #ffffff;
+            --header-bg: #00529c;
+            --logo-ring: var(--accent-color);
+            --logo-cross: var(--secondary-color);
+            --spacing-sm: 0.5rem;
+            --spacing-md: 1rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 4rem;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Exo 2', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        body.dark {
+            --primary-color: #fbcc06;
+            --secondary-color: #00529c;
+            --accent-color: #fbcc06;
+            --accent-hover: #e6b800;
+            --light-bg: #1a1a1a;
+            --card-bg: #2a2a2a;
+            --text-color: #e0e0e0;
+            --text-light: #ffffff;
+            --header-bg: #fbcc06;
+            --logo-ring: var(--accent-color);
+            --logo-cross: var(--secondary-color);
+            background: #121212;
+            color: var(--text-color);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        @media (min-width: 1600px) {
+            .container {
+                max-width: 1600px;
+            }
+        }
+
+        /* Header styles */
+        header {
+            background-color: var(--header-bg);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--box-shadow);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing-md) 0;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        .site-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-light);
+            letter-spacing: 1px;
+        }
+
+        .site-title span {
+            color: var(--secondary-color);
+        }
+
+        body.dark .site-title {
+            color: var(--secondary-color);
+        }
+
+        body.dark .site-title span {
+            color: var(--text-light);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: var(--spacing-lg);
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: var(--spacing-sm) 0;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        body.dark .nav-links a {
+            color: var(--secondary-color);
+        }
+
+        body.dark .nav-links a:hover {
+            color: var(--text-light);
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            width: 30px;
+            height: 3px;
+            background-color: var(--text-light);
+            transition: var(--transition);
+        }
+
+        /* Section styles */
+        .section {
+            padding: 3rem 0;
+            position: relative;
+        }
+
+        .section-light {
+            background-color: var(--light-bg);
+        }
+
+        .section-title {
+            margin-bottom: var(--spacing-md);
+            text-align: center;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin: 0;
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary-color);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto var(--spacing-lg);
+            font-size: 1.1rem;
+        }
+
+        /* News grid */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: var(--spacing-lg);
+            padding: var(--spacing-md) 0;
+        }
+
+        @media (min-width: 1200px) {
+            .news-grid {
+                grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            }
+        }
+
+        @media (min-width: 1600px) {
+            .news-grid {
+                grid-template-columns: repeat(2, 1fr);
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+        }
+        
+        .news-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .news-card-img {
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .news-card-img::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, transparent 0%, transparent 60%, rgba(0,0,0,0.7) 100%);
+            pointer-events: none;
+        }
+        
+        .news-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .news-card:hover .news-card-img img {
+            transform: scale(1.05);
+        }
+        
+        .news-card-content {
+            padding: var(--spacing-lg);
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .news-card-content h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+            font-size: 1.4rem;
+            margin-bottom: var(--spacing-md);
+            line-height: 1.3;
+            font-weight: 700;
+        }
+
+        .news-card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-md);
+            font-size: 0.9rem;
+            color: var(--accent-color);
+            padding-bottom: var(--spacing-sm);
+            border-bottom: 2px solid var(--secondary-color);
+        }
+
+        .news-card-date {
+            font-weight: 500;
+        }
+
+        .news-card-category {
+            background: var(--secondary-color);
+            color: var(--text-light);
+            padding: 0.2rem 0.5rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        body.dark .news-card-category {
+            background: var(--accent-color);
+            color: var(--secondary-color);
+        }
+
+        .news-card-summary {
+            margin-bottom: var(--spacing-lg);
+            flex-grow: 1;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+
+        .news-card-full-content {
+            white-space: pre-line;
+            margin-top: var(--spacing-md);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            display: none;
+        }
+
+        .news-card.expanded .news-card-summary {
+            display: none;
+        }
+
+        .news-card.expanded .news-card-full-content {
+            display: block;
+        }
+
+        .read-more-btn {
+            align-self: flex-start;
+            background: var(--secondary-color);
+            color: var(--text-light);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .read-more-btn:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        body.dark .read-more-btn {
+            background: var(--accent-color);
+            color: var(--secondary-color);
+        }
+
+        body.dark .read-more-btn:hover {
+            background: var(--accent-hover);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: var(--spacing-lg) 0;
+            text-align: center;
+        }
+
+        .footer-content p {
+            margin: var(--spacing-sm) 0;
+        }
+
+        /* Responsive */
+        @media screen and (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+            
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--primary-color);
+                flex-direction: column;
+                align-items: center;
+                padding: var(--spacing-md) 0;
+                gap: var(--spacing-md);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: var(--transition);
+                z-index: 999;
+            }
+            
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .menu-toggle.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 6px);
+            }
+            
+            .menu-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .menu-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -6px);
+            }
+
+            .news-grid {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-md);
+            }
+
+            .news-card-content {
+                padding: var(--spacing-md);
+            }
+
+            .news-card-img {
+                height: 200px;
+            }
+
+            body.dark .nav-links {
+                background-color: var(--header-bg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <div class="container">
+            <nav>
+                <div class="logo-container">
+                    <img id="siteLogo" class="logo" src="assets/Copy of SRGE Lab_black 1.png" alt="SRGElab logo" style="height:50px; width:auto; object-fit:contain" />
+                    <div class="site-title">SRGE<span>lab</span></div>
+                </div>
+                
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="./index.html#home">Home</a></li>
+                    <li><a href="./research.html">Research</a></li>
+                    <li><a href="./publications.html">Publications</a></li>
+                    <li><a href="./team.html">Team</a></li>
+                    <li><a href="./news.html">News</a></li>
+                    <li><a href="./index.html#contact">Contact</a></li>
+                </ul>
+
+                <div class="menu-toggle" id="menuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <button id="themeToggle" aria-label="Toggle theme" style="margin-left: 12px; background: transparent; color: var(--text-light); border: 2px solid var(--text-light); border-radius: 6px; padding: 6px 10px; cursor: pointer;">
+                    🌓
+                </button>
+                <style>
+                    body.dark #themeToggle {
+                        color: var(--secondary-color);
+                        border-color: var(--secondary-color);
+                    }
+                </style>
+            </nav>
+        </div>
+    </header>
+
+    <section class="section section-light">
+        <div class="container">
+            <div class="section-title">
+                <h2>Lab News</h2>
+            </div>
+            <div class="section-subtitle">
+                Stay updated with the latest developments, achievements, and announcements from the SRGElab team.
+            </div>
+            <div id="newsList" class="news-grid"></div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Space Robotics and Generative Estimation Lab</p>
+                <p>Embry-Riddle Aeronautical University</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Menu toggle for mobile
+            const menuToggle = document.getElementById('menuToggle');
+            const navLinks = document.getElementById('navLinks');
+            
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                menuToggle.classList.toggle('active');
+            });
+
+            // Theme toggle + logo swap
+            const themeToggle = document.getElementById('themeToggle');
+            const siteLogo = document.getElementById('siteLogo');
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark');
+                if (siteLogo) siteLogo.src = 'assets/Copy of SRGE Lab-White 1.png';
+            }
+            themeToggle.addEventListener('click', () => {
+                document.body.classList.toggle('dark');
+                const isDark = document.body.classList.contains('dark');
+                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+                if (siteLogo) siteLogo.src = isDark ? 'assets/Copy of SRGE Lab-White 1.png' : 'assets/Copy of SRGE Lab_black 1.png';
+            });
+
+            // Format date function
+            function formatDate(dateString) {
+                const options = { year: 'numeric', month: 'long', day: 'numeric' };
+                return new Date(dateString).toLocaleDateString('en-US', options);
+            }
+
+            // Populate News dynamically
+            fetch('./data/news.json').then(r => r.json()).then(news => {
+                const list = document.getElementById('newsList');
+                if (!list) return;
+                
+                // Sort news by date (newest first)
+                news.sort((a, b) => new Date(b.date) - new Date(a.date));
+                
+                list.innerHTML = news.map((item, i) => `
+                    <div class="news-card" id="news-${i}">
+                        ${item.image ? `
+                            <div class="news-card-img">
+                                <img src="${item.image}" alt="${item.title}" onerror="this.src='assets/placeholder/robot.svg'"/>
+                            </div>
+                        ` : ''}
+                        <div class="news-card-content">
+                            <div class="news-card-meta">
+                                <span class="news-card-date">${formatDate(item.date)}</span>
+                                <span class="news-card-category">${item.category}</span>
+                            </div>
+                            <h3>${item.title}</h3>
+                            <div class="news-card-summary">${item.summary}</div>
+                            <div class="news-card-full-content">${item.content}</div>
+                            <button class="read-more-btn" data-news-id="news-${i}">Read Full Article</button>
+                        </div>
+                    </div>
+                `).join('');
+
+                // Add read more functionality
+                list.querySelectorAll('.read-more-btn').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const newsId = btn.getAttribute('data-news-id');
+                        const newsCard = document.getElementById(newsId);
+                        const isExpanded = newsCard.classList.contains('expanded');
+                        
+                        if (isExpanded) {
+                            newsCard.classList.remove('expanded');
+                            btn.textContent = 'Read Full Article';
+                        } else {
+                            newsCard.classList.add('expanded');
+                            btn.textContent = 'Show Less';
+                        }
+                    });
+                });
+            }).catch(() => {
+                // If data loading fails, show a message
+                document.getElementById('newsList').innerHTML = `
+                    <div class="news-card">
+                        <div class="news-card-content">
+                            <h3>News Coming Soon</h3>
+                            <div class="news-card-summary">Stay tuned for updates from the SRGElab team!</div>
+                        </div>
+                    </div>
+                `;
+            });
+        });
+    </script>
+</body>
+</html>
