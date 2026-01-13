@@ -404,6 +404,48 @@
                 font-size: 1.5rem;
             }
         }
+
+        /* Alumni cards - simpler style without photos */
+        .alumni-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: var(--spacing-md);
+            padding: var(--spacing-md) 0;
+        }
+
+        .alumni-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 1.25rem 1.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .alumni-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+        }
+
+        .alumni-card h4 {
+            margin: 0 0 0.5rem;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .alumni-card p {
+            margin: 0;
+            color: var(--text-color);
+            font-size: 0.95rem;
+            opacity: 0.85;
+        }
+
+        @media screen and (max-width: 768px) {
+            .alumni-grid {
+                grid-template-columns: 1fr;
+            }
+        }
   </style>
 </head>
 <body>
@@ -468,6 +510,12 @@
                 <h3>Undergraduate Researchers</h3>
             </div>
             <div class="team-grid-static" id="undergradGrid"></div>
+
+            <!-- Alumni Section -->
+            <div class="team-section-header">
+                <h3>Alumni</h3>
+            </div>
+            <div class="alumni-grid" id="alumniGrid"></div>
     </div>
   </section>
 
@@ -619,6 +667,28 @@
                 setupImageFallbacks(graduateGrid);
                 setupImageFallbacks(undergradGrid);
             }).catch(() => {});
+
+            // Load Alumni separately
+            fetch('./data/alumni.json').then(r => r.json()).then(alumni => {
+                const alumniGrid = document.getElementById('alumniGrid');
+
+                // Sort alumni alphabetically by name
+                alumni.sort((a, b) => (a.name || '').localeCompare(b.name || ''));
+
+                alumniGrid.innerHTML = alumni.map(person => `
+                    <div class="alumni-card">
+                        <h4>${person.name}</h4>
+                        <p>${person.currentPosition}</p>
+                    </div>
+                `).join('');
+            }).catch(() => {
+                // If no alumni.json exists, hide the section
+                const alumniSection = document.getElementById('alumniGrid');
+                if (alumniSection) {
+                    alumniSection.previousElementSibling.style.display = 'none';
+                    alumniSection.style.display = 'none';
+                }
+            });
     });
   </script>
 </body>
