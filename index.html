@@ -390,7 +390,127 @@
             margin-top: 0;
             color: var(--primary-color);
         }
-        
+
+        /* Research Category Cards - Two large cards side by side */
+        .research-categories {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-lg);
+            padding: var(--spacing-lg) 0;
+        }
+
+        .research-category-card {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            transition: all 0.4s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            min-height: 350px;
+        }
+
+        .research-category-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+        }
+
+        .research-category-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .research-category-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .research-category-card:hover .research-category-img img {
+            transform: scale(1.08);
+        }
+
+        .research-category-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0, 82, 156, 0.95) 0%, rgba(0, 82, 156, 0.7) 50%, rgba(0, 82, 156, 0.3) 100%);
+            transition: background 0.4s ease;
+        }
+
+        .research-category-card:hover .research-category-overlay {
+            background: linear-gradient(to top, rgba(0, 82, 156, 0.98) 0%, rgba(0, 82, 156, 0.8) 50%, rgba(0, 82, 156, 0.4) 100%);
+        }
+
+        .research-category-content {
+            position: relative;
+            z-index: 1;
+            padding: var(--spacing-xl);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            height: 100%;
+            box-sizing: border-box;
+            color: white;
+        }
+
+        .research-category-content h3 {
+            font-size: 1.8rem;
+            margin: 0 0 var(--spacing-sm);
+            color: white;
+            font-weight: 700;
+        }
+
+        .research-category-content p {
+            font-size: 1.05rem;
+            margin: 0 0 var(--spacing-md);
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .research-category-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--secondary-color);
+            font-weight: 600;
+            font-size: 1rem;
+            transition: gap 0.3s ease;
+        }
+
+        .research-category-card:hover .research-category-link {
+            gap: 12px;
+        }
+
+        .research-category-link svg {
+            transition: transform 0.3s ease;
+        }
+
+        .research-category-card:hover .research-category-link svg {
+            transform: translateX(4px);
+        }
+
+        @media screen and (max-width: 768px) {
+            .research-categories {
+                grid-template-columns: 1fr;
+            }
+
+            .research-category-card {
+                min-height: 280px;
+            }
+
+            .research-category-content h3 {
+                font-size: 1.5rem;
+            }
+        }
+
         .team-member-role {
             color: var(--secondary-color);
             font-weight: 600;
@@ -740,78 +860,30 @@
             <div class="section-subtitle">
                 Exploring the frontiers of autonomous robotics through innovative approaches to perception, estimation, and control in challenging environments.
             </div>
-            <!-- Research grid horizontally scrollable -->
-            <div class="scroll-container">
-                <div class="research-grid">
-                    <div class="research-card">
-                        <div class="research-card-img">
-                            <img src="./assets/lab/lab-photo-1.jpg" alt="Localization and Mapping" onerror="this.src='assets/placeholder/robot.svg'">
-                        </div>
-                        <div class="research-card-content">
-                            <h3>Localization and Mapping</h3>
-                            <p>Developing robust state estimation frameworks for ground and legged robots operating on extreme environments (i.e., planetary surfaces).</p>
-                            <a href="./research.html" class="btn">Learn More</a>
-                        </div>
+            <!-- Two main research category cards -->
+            <div class="research-categories">
+                <a href="./research.html#orbital" class="research-category-card">
+                    <div class="research-category-img">
+                        <img src="./assets/research/orbital-placeholder.jpg" alt="Orbital Robotics" onerror="this.src='assets/lab/lab-photo-2.jpg'">
+                        <div class="research-category-overlay"></div>
                     </div>
-                    
-                    <div class="research-card">
-                        <div class="research-card-img">
-                            <img src="./assets/lab/lab-photo-2.jpg" alt="Multi-Robot Systems" onerror="this.src='assets/placeholder/robot.svg'">
-                        </div>
-                        <div class="research-card-content">
-                            <h3>Multi-Robot Systems</h3>
-                            <p>Exploring swarm-based and distributed estimation techniques for improved localization and environmental perception.</p>
-                            <a href="./research.html" class="btn">Learn More</a>
-                        </div>
+                    <div class="research-category-content">
+                        <h3>Orbital Robotics</h3>
+                        <p>Space-based robotic systems, satellite operations, and cislunar exploration research.</p>
+                        <span class="research-category-link">Explore Research <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
                     </div>
-                    
-                    <div class="research-card">
-                        <div class="research-card-img">
-                            <img src="./assets/lab/lab-photo-3.jpg" alt="Physics-Informed Estimation" onerror="this.src='assets/placeholder/robot.svg'">
-                        </div>
-                        <div class="research-card-content">
-                            <h3>Physics-Informed Estimation</h3>
-                            <p>Enhancing navigation accuracy by incorporating physical laws and constraints relevant to planetary environments.</p>
-                            <a href="./research.html" class="btn">Learn More</a>
-                        </div>
+                </a>
+                <a href="./research.html#planetary" class="research-category-card">
+                    <div class="research-category-img">
+                        <img src="./assets/lab/lab-photo-1.jpg" alt="Planetary/Terrestrial Robotics" onerror="this.src='assets/placeholder/robot.svg'">
+                        <div class="research-category-overlay"></div>
                     </div>
-                    
-                    <div class="research-card">
-                        <div class="research-card-img">
-                            <img src="./assets/lab/lab-photo-4.jpg" alt="Terrain-Aware Mobility" onerror="this.src='assets/placeholder/robot.svg'">
-                        </div>
-                        <div class="research-card-content">
-                            <h3>Terrain-Aware Mobility</h3>
-                            <p>Modeling robot-terrain interactions to improve slip-aware localization and locomotion strategies.</p>
-                            <a href="./research.html" class="btn">Learn More</a>
-                        </div>
+                    <div class="research-category-content">
+                        <h3>Planetary/Terrestrial Robotics</h3>
+                        <p>Ground-based robotic systems for planetary exploration and terrestrial applications.</p>
+                        <span class="research-category-link">Explore Research <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
                     </div>
-                    
-                    <div class="research-card">
-                        <div class="research-card-img">
-                            <img src="./assets/lab/lab-photo-2.jpg" alt="Application to Space Missions" onerror="this.src='assets/placeholder/robot.svg'">
-                        </div>
-                        <div class="research-card-content">
-                            <h3>Application to Space Missions</h3>
-                            <p>Translating estimation and navigation methods into practical solutions for planetary exploration missions, including autonomous surface operations.</p>
-                            <a href="./research.html" class="btn">Learn More</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Scroll indicators for research -->
-            <div class="scroll-indicators">
-                <div class="scroll-indicator scroll-left">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M15 19L8 12L15 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </div>
-                <div class="scroll-indicator scroll-right">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M9 5L16 12L9 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </div>
+                </a>
             </div>
         </div>
     </section>

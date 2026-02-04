@@ -1,27 +1,58 @@
-[
-  {
-    "title": "Localization and Mapping",
-    "description": "Robust state estimation for rovers and legged robots in extreme, GNSS-denied environments.",
-    "image": "assets/lab/lab-photo-1.jpg"
+{
+  "orbital": {
+    "id": "orbital",
+    "title": "Orbital Robotics",
+    "description": "Research focused on space-based robotic systems, satellite operations, and cislunar exploration.",
+    "image": "assets/research/orbital-placeholder.jpg",
+    "areas": [
+      {
+        "title": "AI Heliophysics",
+        "description": "Applying artificial intelligence to study solar activity and space weather phenomena.",
+        "image": "assets/research/placeholder-1.jpg"
+      },
+      {
+        "title": "Debris Identification",
+        "description": "Detection and tracking of orbital debris for space situational awareness.",
+        "image": "assets/research/placeholder-2.jpg"
+      },
+      {
+        "title": "Cislunar Applications",
+        "description": "Navigation and operations in the Earth-Moon system for future lunar missions.",
+        "image": "assets/research/placeholder-3.jpg"
+      }
+    ]
   },
-  {
-    "title": "Multi‑Robot Systems",
-    "description": "Swarm-based and distributed estimation for cooperative perception and navigation.",
-    "image": "assets/research/PXL_20250416_175220874.jpg"
-  },
-  {
-    "title": "Physics‑Informed Estimation",
-    "description": "Incorporate environmental and motion constraints to improve accuracy and robustness.",
-    "image": "assets/research/PXL_20250416_175104251.MP.jpg"
-  },
-  {
-    "title": "Terrain‑Aware Mobility",
-    "description": "Slip-aware estimation and locomotion strategies for challenging terrains.",
-    "image": "assets/research/PXL_20250416_201037386.jpg"
-  },
-  {
-    "title": "Mission Applications",
-    "description": "Transition methods to real planetary missions and analog environments.",
-    "image": "assets/research/PXL_20250416_200914074.MP.jpg"
+  "planetary": {
+    "id": "planetary",
+    "title": "Planetary/Terrestrial Robotics",
+    "description": "Research focused on ground-based robotic systems for planetary exploration and terrestrial applications.",
+    "image": "assets/lab/lab-photo-1.jpg",
+    "areas": [
+      {
+        "title": "Localization and Mapping",
+        "description": "Robust state estimation for rovers and legged robots in extreme, GNSS-denied environments.",
+        "image": "assets/lab/lab-photo-1.jpg"
+      },
+      {
+        "title": "Multi-Robot Systems",
+        "description": "Swarm-based and distributed estimation for cooperative perception and navigation.",
+        "image": "assets/research/PXL_20250416_175220874.jpg"
+      },
+      {
+        "title": "Physics-Informed Estimation",
+        "description": "Incorporate environmental and motion constraints to improve accuracy and robustness.",
+        "image": "assets/research/PXL_20250416_175104251.MP.jpg"
+      },
+      {
+        "title": "Terrain-Aware Mobility",
+        "description": "Slip-aware estimation and locomotion strategies for challenging terrains.",
+        "image": "assets/research/PXL_20250416_201037386.jpg"
+      },
+      {
+        "title": "Mission Applications",
+        "description": "Transition methods to real planetary missions and analog environments.",
+        "image": "assets/research/PXL_20250416_200914074.MP.jpg"
+      }
+    ]
   }
-]
+}
