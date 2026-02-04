@@ -1012,19 +1012,6 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Research section scroll controls
-            const researchContainer = document.querySelector('#research .scroll-container');
-            const leftResearchBtn = document.querySelector('.scroll-left');
-            const rightResearchBtn = document.querySelector('.scroll-right');
-            
-            leftResearchBtn.addEventListener('click', () => {
-                researchContainer.scrollBy({ left: -400, behavior: 'smooth' });
-            });
-            
-            rightResearchBtn.addEventListener('click', () => {
-                researchContainer.scrollBy({ left: 400, behavior: 'smooth' });
-            });
-            
             // Menu toggle for mobile
             const menuToggle = document.getElementById('menuToggle');
             const navLinks = document.getElementById('navLinks');
