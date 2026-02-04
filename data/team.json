@@ -46,9 +46,9 @@
   {
     "name": "Jose Castelblanco",
     "role": "Master's Student (ME)",
-    "email": "",
-    "photo": "",
-    "bio": ""
+    "email": "castej10@my.erau.edu",
+    "photo": "assets/team/jose.jfif",
+    "bio": "Develops autonomy and sensing systems for mobile robots with focus on space and planetary field robotics. Research spans ROS 2 autonomy stacks, edge computing, and multi-sensor pipelines, with validation on quadruped platforms in unstructured environments."
   },
   {
     "name": "Benjamin Heckel",
