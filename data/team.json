@@ -1,5 +1,6 @@
 [
   {
+    "id": "cagri-kilic",
     "name": "Dr. Cagri Kilic",
     "role": "Lab Director",
     "email": "kilicc@erau.edu",
@@ -7,6 +8,7 @@
     "bio": "Specializes in state estimation and navigation for planetary exploration robots."
   },
   {
+    "id": "tuba-girgin",
     "name": "Tuba Girgin",
     "role": "Graduate Research Assistant – PhD Student",
     "email": "cibukgig@my.erau.edu",
@@ -14,6 +16,7 @@
     "bio": "Robotics researcher specializing in ROS, robot learning, and deep learning for autonomous robot navigation and manipulation on planetary surfaces. Experienced in designing deep neural network architectures, including graph neural networks, for robot learning applications."
   },
   {
+    "id": "emre-girgin",
     "name": "Emre Girgin",
     "role": "Graduate Research Assistant - PhD Student",
     "email": "girgine@my.erau.edu",
@@ -21,6 +24,7 @@
     "bio": "Computer Vision / Deep Learning / Robotics"
   },
   {
+    "id": "akash-joseph",
     "name": "Akash Joseph",
     "role": "PhD Student in Aerospace Engineering",
     "email": "josepha8@my.erau.edu",
@@ -29,6 +33,7 @@
     "bio": "Researches cislunar astrodynamics and spacecraft dynamics in multi-body environments. Studies orbit families such as NRHOs and ELFOs using the CR3BP to design deployment and control strategies for CubeSat constellations and low-energy transfers."
   },
   {
+    "id": "leia-spaniak",
     "name": "Leia Spaniak",
     "role": "Master's Student",
     "email": "spaniakl@my.erau.edu",
@@ -37,6 +42,7 @@
     "bio": "Researcher focused on integrating biologically inspired design in cybersecurity methods for aerospace navigation."
   },
   {
+    "id": "jasmine-nakladov",
     "name": "Jasmine Nakladov",
     "role": "Master's Student",
     "email": "nakladoj@my.erau.edu",
@@ -44,6 +50,7 @@
     "bio": "Dynamics and controls researcher focused on designing control systems to aid in autonomous robot navigation. Experienced in rover design and spacecraft control and trajectory development."
   },
   {
+    "id": "jose-castelblanco",
     "name": "Jose Castelblanco",
     "role": "Master's Student (ME)",
     "email": "castej10@my.erau.edu",
@@ -51,6 +58,7 @@
     "bio": "Develops autonomy and sensing systems for mobile robots with focus on space and planetary field robotics. Research spans ROS 2 autonomy stacks, edge computing, and multi-sensor pipelines, with validation on quadruped platforms in unstructured environments."
   },
   {
+    "id": "benjamin-heckel",
     "name": "Benjamin Heckel",
     "role": "Research Assistant – Undergraduate Student in Aerospace Engineering (Accelerated bachelor's to master's)",
     "email": "heckelb@my.erau.edu",
@@ -59,6 +67,7 @@
     "bio": "Space Robotics researcher focused on bio-inspired end-effector design to improve robotic mobility in planetary environments."
   },
   {
+    "id": "dheer-chhabria",
     "name": "Dheer Chhabria",
     "role": "Research Assistant - Undergraduate Student in Aerospace Engineering with a Minor in Computer Science",
     "email": "chhabrid@my.erau.edu",
@@ -67,6 +76,7 @@
     "bio": "Space Robotics researcher focusing on quadruped robotics and developing their electronics, as well as the development and implementation of various sensor systems."
   },
   {
+    "id": "haitish-gandhi",
     "name": "Haitish Gandhi",
     "role": "Undergraduate Researcher – Student in Aerospace Engineering Honors, with minors in Computer Aided Design/Manufacturing and Applied Mathematics.",
     "email": "gandhih@my.erau.edu",
@@ -75,6 +85,7 @@
     "bio": "Researching different locomotive methods in space robotics and working on integrating a quadruped and quadcopter into one hybrid locomotion used for planetary exploration. Project name: HyDroQuad."
   },
   {
+    "id": "nicolas-bonasoro",
     "name": "Nicolas Bonasoro",
     "role": "Research Assistant – Undergraduate Student in Aerospace Engineering with an Associate Degree in Applied Science – Business Administration",
     "email": "bonasorn@my.erau.edu",
@@ -83,7 +94,8 @@
     "bio": "Undergraduate Aerospace Engineering student researching lunar terrain operations and autonomous navigation. Work includes lunar habitat design, terramechanics, rover path planning and excavation, and improving safety in space operations."
   },
   {
-    "name": "James Kirk",
+    "id": "james-hudson-kirk",
+    "name": "James Hudson Kirk",
     "role": "Research Assistant - Undergraduate Student in Aerospace Engineering",
     "email": "kirkj15@my.erau.edu",
     "photo": "",
@@ -91,6 +103,7 @@
     "bio": "Researcher using ANSYS STK to design and improve lunar satellite infrastructure for lunar mission safety in STK. Scenario designs include improved communication and coverage of the lunar surface as well as debris tracking capabilities."
   },
   {
+    "id": "kylie-nager",
     "name": "Kylie Nager",
     "role": "Research Assistant – Undergraduate Student in Aerospace Engineering",
     "email": "nagerk1@my.erau.edu",
@@ -99,6 +112,7 @@
     "bio": "Systems-oriented CubeSat resilience researcher focused on advancing the reliability and robustness of CubeSat design to ensure mission success through architecture, estimator-aware fault management, and V&V, applicable across subsystems."
   },
   {
+    "id": "jose-walker-demedeiros",
     "name": "Jose Walker Demedeiros",
     "role": "Research Assistant - Undergraduate Researcher",
     "email": "demedeij@my.erau.edu",
@@ -107,6 +121,7 @@
     "bio": "Space Robotics researcher focusing on mixed sensor integration for spatial mapping and awareness including quadrupeds, rovers and micro-drones."
   },
   {
+    "id": "jonah-graff",
     "name": "Jonah Graff",
     "role": "Undergraduate Researcher",
     "email": "",
@@ -114,6 +129,7 @@
     "bio": ""
   },
   {
+    "id": "payton-miller",
     "name": "Payton Miller",
     "role": "Undergraduate Researcher",
     "email": "",
@@ -121,6 +137,7 @@
     "bio": ""
   },
   {
+    "id": "garrett-seyler",
     "name": "Garrett Seyler",
     "role": "Undergraduate Researcher",
     "email": "",

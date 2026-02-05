@@ -277,6 +277,27 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
         }
 
+        /* Clickable card styles */
+        a.clickable-card {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            cursor: pointer;
+        }
+
+        a.clickable-card .team-member-info h3 {
+            transition: color 0.3s ease;
+        }
+
+        a.clickable-card:hover .team-member-info h3 {
+            color: var(--primary-color);
+        }
+
+        a.clickable-card .team-member-contact a {
+            position: relative;
+            z-index: 10;
+        }
+
         .team-member-img {
             width: 100%;
             aspect-ratio: 4 / 5;
@@ -581,23 +602,28 @@
                 const rest = candidates.slice(1).join('|');
 
                 const cardClass = isDirector ? 'director-card' : 'team-member';
+                const profileUrl = member.id ? `./profile.html?member=${member.id}` : null;
 
-                return `
-                    <div class="${cardClass}">
-                        <div class="team-member-img">
-                            <img src="${firstSrc}" data-candidates="${rest}" alt="${member.name}">
-                        </div>
-                        <div class="team-member-info">
-                            <h3>${member.name}</h3>
-                            <p class="team-member-role">${member.role}</p>
-                            <p>${member.bio || ''}</p>
-                            <div class="team-member-contact">
-                                ${member.email ? `<a href="mailto:${member.email}">${member.email}</a>` : ''}
-                                ${member.linkedin ? `${member.email ? ' · ' : ''}<a href="${member.linkedin}" target="_blank" rel="noopener">LinkedIn</a>` : ''}
-                            </div>
+                const cardContent = `
+                    <div class="team-member-img">
+                        <img src="${firstSrc}" data-candidates="${rest}" alt="${member.name}">
+                    </div>
+                    <div class="team-member-info">
+                        <h3>${member.name}</h3>
+                        <p class="team-member-role">${member.role}</p>
+                        <p>${member.bio || ''}</p>
+                        <div class="team-member-contact">
+                            ${member.email ? `<a href="mailto:${member.email}" onclick="event.stopPropagation();">${member.email}</a>` : ''}
+                            ${member.linkedin ? `${member.email ? ' · ' : ''}<a href="${member.linkedin}" target="_blank" rel="noopener" onclick="event.stopPropagation();">LinkedIn</a>` : ''}
                         </div>
                     </div>
                 `;
+
+                if (profileUrl) {
+                    return `<a href="${profileUrl}" class="${cardClass} clickable-card">${cardContent}</a>`;
+                } else {
+                    return `<div class="${cardClass}">${cardContent}</div>`;
+                }
             }
 
             // Helper function to set up image fallbacks

@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile | SRGElab</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #00529c;
+            --secondary-color: #fbcc06;
+            --accent-color: #00529c;
+            --accent-hover: #003d73;
+            --light-bg: #f8f9fa;
+            --dark-bg: #1a1a1a;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            --text-light: #ffffff;
+            --header-bg: #00529c;
+            --spacing-sm: 0.5rem;
+            --spacing-md: 1rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 4rem;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Exo 2', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-color: var(--light-bg);
+        }
+
+        body.dark {
+            --primary-color: #fbcc06;
+            --secondary-color: #00529c;
+            --accent-color: #fbcc06;
+            --accent-hover: #e6b800;
+            --light-bg: #1a1a1a;
+            --card-bg: #2a2a2a;
+            --text-color: #e0e0e0;
+            --text-light: #ffffff;
+            --header-bg: #fbcc06;
+            background: #121212;
+            color: var(--text-color);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        /* Header styles */
+        header {
+            background-color: var(--header-bg);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--box-shadow);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing-md) 0;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        .site-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-light);
+            letter-spacing: 1px;
+        }
+
+        .site-title span {
+            color: var(--secondary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: var(--spacing-lg);
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: var(--spacing-sm) 0;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        body.dark .nav-links a {
+            color: var(--secondary-color);
+        }
+
+        body.dark .nav-links a:hover {
+            color: var(--text-light);
+        }
+
+        body.dark .site-title {
+            color: var(--secondary-color);
+        }
+
+        body.dark .site-title span {
+            color: var(--text-light);
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            width: 30px;
+            height: 3px;
+            background-color: var(--text-light);
+            transition: var(--transition);
+        }
+
+        /* Profile Section */
+        .profile-section {
+            padding: var(--spacing-xl) 0;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: var(--spacing-lg);
+            transition: var(--transition);
+        }
+
+        .back-link:hover {
+            color: var(--accent-hover);
+        }
+
+        .back-link svg {
+            transition: transform 0.3s ease;
+        }
+
+        .back-link:hover svg {
+            transform: translateX(-4px);
+        }
+
+        .profile-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+        }
+
+        .profile-header {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: var(--spacing-xl);
+            padding: var(--spacing-xl);
+        }
+
+        .profile-photo {
+            width: 100%;
+            aspect-ratio: 4/5;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            background: var(--light-bg);
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .profile-info h1 {
+            font-size: 2.5rem;
+            margin: 0 0 var(--spacing-sm);
+            color: var(--primary-color);
+        }
+
+        .profile-role {
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin: 0 0 var(--spacing-md);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        body.dark .profile-role {
+            color: var(--primary-color);
+        }
+
+        .profile-contact {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-md);
+        }
+
+        .profile-contact a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .profile-contact a:hover {
+            color: var(--primary-color);
+        }
+
+        .profile-contact svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        .profile-body {
+            padding: 0 var(--spacing-xl) var(--spacing-xl);
+        }
+
+        .profile-section-title {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin: var(--spacing-lg) 0 var(--spacing-md);
+            padding-bottom: var(--spacing-sm);
+            border-bottom: 3px solid var(--secondary-color);
+        }
+
+        .profile-bio {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .research-interests {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-md);
+        }
+
+        .research-tag {
+            background: var(--primary-color);
+            color: var(--text-light);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        body.dark .research-tag {
+            background: var(--secondary-color);
+            color: #1a1a1a;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-bg);
+            color: var(--text-light);
+            padding: var(--spacing-lg) 0;
+            margin-top: var(--spacing-xl);
+        }
+
+        .footer-content {
+            text-align: center;
+        }
+
+        .footer-content p {
+            margin: var(--spacing-sm) 0;
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media screen and (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--primary-color);
+                flex-direction: column;
+                padding: var(--spacing-md) 0;
+                gap: var(--spacing-md);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: var(--transition);
+                z-index: 999;
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .menu-toggle.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 6px);
+            }
+
+            .menu-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .menu-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -6px);
+            }
+
+            .profile-header {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .profile-photo {
+                max-width: 250px;
+                margin: 0 auto;
+            }
+
+            .profile-info h1 {
+                font-size: 2rem;
+            }
+
+            .profile-contact {
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo-container">
+                    <img id="siteLogo" class="logo" src="assets/Copy of SRGE Lab_black 1.png" alt="SRGElab logo" style="height:50px; width:auto; object-fit:contain" />
+                    <div class="site-title">SRGE<span>lab</span></div>
+                </div>
+
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="./index.html#home">Home</a></li>
+                    <li><a href="./research.html">Research</a></li>
+                    <li><a href="./publications.html">Publications</a></li>
+                    <li><a href="./team.html">Team</a></li>
+                    <li><a href="./news.html">News</a></li>
+                    <li><a href="./index.html#contact">Contact</a></li>
+                </ul>
+
+                <div class="menu-toggle" id="menuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <button id="themeToggle" aria-label="Toggle theme" style="margin-left: 12px; background: transparent; color: var(--text-light); border: 2px solid var(--text-light); border-radius: 6px; padding: 6px 10px; cursor: pointer;">
+                    🌓
+                </button>
+                <style>
+                    body.dark #themeToggle {
+                        color: var(--secondary-color);
+                        border-color: var(--secondary-color);
+                    }
+                </style>
+            </nav>
+        </div>
+    </header>
+
+    <section class="profile-section">
+        <div class="container">
+            <a href="./team.html" class="back-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Back to Team
+            </a>
+
+            <div class="profile-card" id="profileCard">
+                <!-- Content will be loaded dynamically -->
+                <div style="padding: var(--spacing-xl); text-align: center;">
+                    <p>Loading profile...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Space Robotics and Generative Estimation Lab</p>
+                <p>Embry-Riddle Aeronautical University</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Menu toggle for mobile
+            const menuToggle = document.getElementById('menuToggle');
+            const navLinks = document.getElementById('navLinks');
+
+            if (menuToggle && navLinks) {
+                menuToggle.addEventListener('click', () => {
+                    navLinks.classList.toggle('active');
+                    menuToggle.classList.toggle('active');
+                });
+            }
+
+            // Theme toggle + logo swap
+            const themeToggle = document.getElementById('themeToggle');
+            const siteLogo = document.getElementById('siteLogo');
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark');
+                if (siteLogo) siteLogo.src = 'assets/Copy of SRGE Lab-White 1.png';
+            }
+            themeToggle.addEventListener('click', () => {
+                document.body.classList.toggle('dark');
+                const isDark = document.body.classList.contains('dark');
+                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+                if (siteLogo) siteLogo.src = isDark ? 'assets/Copy of SRGE Lab-White 1.png' : 'assets/Copy of SRGE Lab_black 1.png';
+            });
+
+            // Get member ID from URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const memberId = urlParams.get('member');
+
+            if (!memberId) {
+                document.getElementById('profileCard').innerHTML = `
+                    <div style="padding: var(--spacing-xl); text-align: center;">
+                        <h2>Member not found</h2>
+                        <p>Please select a team member from the <a href="./team.html">Team page</a>.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            // Helper function to generate image candidates
+            function getImageCandidates(member) {
+                const raw = (member.name || '').toLowerCase().normalize('NFD').replace(/\p{Diacritic}/gu, '');
+                const parts = raw.split(/[^a-z0-9]+/).filter(Boolean);
+                const first = parts[0] || '';
+                const last = parts.length > 1 ? parts[parts.length - 1] : '';
+                const base = raw.replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, '');
+                const concat = (first && last) ? `${first}${last}` : first;
+
+                let primary = [];
+                if (member.photo && member.photo.trim()) primary.push(member.photo.trim());
+                primary.push(`assets/team/${base}.jpg`, `assets/team/${base}.jpeg`, `assets/team/${base}.png`);
+                if (first) primary.push(`assets/team/${first}.jpg`, `assets/team/${first}.jpeg`, `assets/team/${first}.png`);
+                if (last) primary.push(`assets/team/${last}.jpg`, `assets/team/${last}.jpeg`, `assets/team/${last}.png`);
+                if (concat) primary.push(`assets/team/${concat}.jpg`, `assets/team/${concat}.jpeg`, `assets/team/${concat}.png`);
+                if (last) primary.push(`assets/team/dr_${last}.jpg`, `assets/team/dr_${last}.jpeg`, `assets/team/dr_${last}.png`);
+                return primary;
+            }
+
+            // Load member data
+            fetch('./data/team.json')
+                .then(r => r.json())
+                .then(team => {
+                    const member = team.find(m => m.id === memberId);
+
+                    if (!member) {
+                        document.getElementById('profileCard').innerHTML = `
+                            <div style="padding: var(--spacing-xl); text-align: center;">
+                                <h2>Member not found</h2>
+                                <p>The requested team member could not be found. Please return to the <a href="./team.html">Team page</a>.</p>
+                            </div>
+                        `;
+                        return;
+                    }
+
+                    // Update page title
+                    document.title = `${member.name} | SRGElab`;
+
+                    // Get image candidates
+                    const candidates = getImageCandidates(member);
+                    const firstSrc = candidates[0] || 'assets/placeholder/robot.svg';
+                    const rest = candidates.slice(1).join('|');
+
+                    // Render profile
+                    document.getElementById('profileCard').innerHTML = `
+                        <div class="profile-header">
+                            <div class="profile-photo">
+                                <img src="${firstSrc}" data-candidates="${rest}" alt="${member.name}" id="profileImg">
+                            </div>
+                            <div class="profile-info">
+                                <h1>${member.name}</h1>
+                                <p class="profile-role">${member.role}</p>
+                                <div class="profile-contact">
+                                    ${member.email ? `
+                                        <a href="mailto:${member.email}">
+                                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M22 6L12 13L2 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                            ${member.email}
+                                        </a>
+                                    ` : ''}
+                                    ${member.linkedin ? `
+                                        <a href="${member.linkedin}" target="_blank" rel="noopener">
+                                            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                            </svg>
+                                            LinkedIn Profile
+                                        </a>
+                                    ` : ''}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="profile-body">
+                            ${member.bio ? `
+                                <h3 class="profile-section-title">About</h3>
+                                <p class="profile-bio">${member.bio}</p>
+                            ` : ''}
+
+                            <h3 class="profile-section-title">Research Interests</h3>
+                            <div class="research-interests">
+                                <span class="research-tag">Space Robotics</span>
+                                <span class="research-tag">Autonomous Systems</span>
+                                <span class="research-tag">Planetary Exploration</span>
+                            </div>
+                        </div>
+                    `;
+
+                    // Setup image fallback
+                    const profileImg = document.getElementById('profileImg');
+                    if (profileImg) {
+                        profileImg.addEventListener('error', function() {
+                            const list = (this.getAttribute('data-candidates') || '').split('|').filter(Boolean);
+                            if (list.length) {
+                                const next = list.shift();
+                                this.setAttribute('data-candidates', list.join('|'));
+                                this.src = next;
+                            } else {
+                                this.src = 'assets/placeholder/robot.svg';
+                            }
+                        });
+                    }
+                })
+                .catch(err => {
+                    console.error('Error loading team data:', err);
+                    document.getElementById('profileCard').innerHTML = `
+                        <div style="padding: var(--spacing-xl); text-align: center;">
+                            <h2>Error loading profile</h2>
+                            <p>There was an error loading the profile data. Please try again later.</p>
+                        </div>
+                    `;
+                });
+        });
+    </script>
+</body>
+</html>
