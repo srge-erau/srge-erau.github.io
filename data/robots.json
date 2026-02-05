@@ -1,0 +1,44 @@
+[
+  {
+    "id": "go2",
+    "name": "Go2",
+    "type": "Quadruped",
+    "description": "Agile four-legged robot platform for terrain navigation and locomotion research.",
+    "photo": "assets/robots/go2.jpg"
+  },
+  {
+    "id": "scout2",
+    "name": "Scout2",
+    "type": "Rover",
+    "description": "Ground exploration rover for planetary surface studies.",
+    "photo": "assets/robots/scout2.jpg"
+  },
+  {
+    "id": "tron1",
+    "name": "Tron1",
+    "type": "Multi Modal Biped",
+    "description": "Bipedal robot exploring multi-modal locomotion.",
+    "photo": "assets/robots/tron1.jpg"
+  },
+  {
+    "id": "miti",
+    "name": "Miti",
+    "type": "Rover",
+    "description": "Compact rover platform for mobility research.",
+    "photo": "assets/robots/miti.jpg"
+  },
+  {
+    "id": "max",
+    "name": "Max",
+    "type": "Rover",
+    "description": "Heavy-duty rover for rugged terrain operations.",
+    "photo": "assets/robots/max.jpg"
+  },
+  {
+    "id": "hydroquad-mk1",
+    "name": "Hydroquad MK1",
+    "type": "Hybrid Drone Quadruped",
+    "description": "Innovative drone-quadruped hybrid for aerial-ground transitions.",
+    "photo": "assets/robots/hydroquad-mk1.jpg"
+  }
+]
