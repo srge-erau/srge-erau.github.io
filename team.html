@@ -277,23 +277,27 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
         }
 
-        /* Clickable card styles */
-        a.clickable-card {
+        /* Clickable card styles - make a tags look like the original div cards */
+        a.team-member,
+        a.director-card {
             text-decoration: none;
             color: inherit;
             display: block;
             cursor: pointer;
         }
 
-        a.clickable-card .team-member-info h3 {
+        a.team-member .team-member-info h3,
+        a.director-card .team-member-info h3 {
             transition: color 0.3s ease;
         }
 
-        a.clickable-card:hover .team-member-info h3 {
+        a.team-member:hover .team-member-info h3,
+        a.director-card:hover .team-member-info h3 {
             color: var(--primary-color);
         }
 
-        a.clickable-card .team-member-contact a {
+        a.team-member .team-member-contact a,
+        a.director-card .team-member-contact a {
             position: relative;
             z-index: 10;
         }
@@ -620,7 +624,7 @@
                 `;
 
                 if (profileUrl) {
-                    return `<a href="${profileUrl}" class="${cardClass} clickable-card">${cardContent}</a>`;
+                    return `<a href="${profileUrl}" class="${cardClass}">${cardContent}</a>`;
                 } else {
                     return `<div class="${cardClass}">${cardContent}</div>`;
                 }
