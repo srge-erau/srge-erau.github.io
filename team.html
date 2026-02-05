@@ -277,30 +277,20 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
         }
 
-        /* Clickable card styles - make a tags look like the original div cards */
-        a.team-member,
-        a.director-card {
-            text-decoration: none;
-            color: inherit;
-            display: flex;
-            flex-direction: column;
+        /* Clickable card hover effect */
+        .team-member[onclick],
+        .director-card[onclick] {
             cursor: pointer;
         }
 
-        a.team-member .team-member-info h3,
-        a.director-card .team-member-info h3 {
+        .team-member[onclick] .team-member-info h3,
+        .director-card[onclick] .team-member-info h3 {
             transition: color 0.3s ease;
         }
 
-        a.team-member:hover .team-member-info h3,
-        a.director-card:hover .team-member-info h3 {
+        .team-member[onclick]:hover .team-member-info h3,
+        .director-card[onclick]:hover .team-member-info h3 {
             color: var(--primary-color);
-        }
-
-        a.team-member .team-member-contact a,
-        a.director-card .team-member-contact a {
-            position: relative;
-            z-index: 10;
         }
 
         .team-member-img {
@@ -609,10 +599,12 @@
                 const cardClass = isDirector ? 'director-card' : 'team-member';
                 const profileUrl = member.id ? `./profile.html?member=${member.id}` : null;
 
-                const cardContent = `
+                const imgHtml = `
                     <div class="team-member-img">
                         <img src="${firstSrc}" data-candidates="${rest}" alt="${member.name}">
-                    </div>
+                    </div>`;
+
+                const infoHtml = `
                     <div class="team-member-info">
                         <h3>${member.name}</h3>
                         <p class="team-member-role">${member.role}</p>
@@ -621,13 +613,12 @@
                             ${member.email ? `<a href="mailto:${member.email}" onclick="event.stopPropagation();">${member.email}</a>` : ''}
                             ${member.linkedin ? `${member.email ? ' · ' : ''}<a href="${member.linkedin}" target="_blank" rel="noopener" onclick="event.stopPropagation();">LinkedIn</a>` : ''}
                         </div>
-                    </div>
-                `;
+                    </div>`;
 
                 if (profileUrl) {
-                    return `<a href="${profileUrl}" class="${cardClass}">${cardContent}</a>`;
+                    return `<div class="${cardClass}" onclick="window.location.href='${profileUrl}'" style="cursor:pointer;">${imgHtml}${infoHtml}</div>`;
                 } else {
-                    return `<div class="${cardClass}">${cardContent}</div>`;
+                    return `<div class="${cardClass}">${imgHtml}${infoHtml}</div>`;
                 }
             }
 
