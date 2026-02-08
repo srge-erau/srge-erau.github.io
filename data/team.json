@@ -5,7 +5,8 @@
     "role": "Lab Director",
     "email": "kilicc@erau.edu",
     "photo": "assets/team/dr_kilic.jpg",
-    "bio": "Specializes in state estimation and navigation for planetary exploration robots."
+    "bio": "Assistant Professor specializing in space robotics and state estimation for planetary exploration. Fulbright Scholar and former NASA JPL Fellow.",
+    "fullBio": "Assistant Professor and Director of the SRGE Lab, specializing in space robotics and computationally efficient state estimation techniques. Research focuses on cooperative localization, perception, planning, and robot-terrain interactions for multi-robot systems in visually challenging planetary environments. Former NASA JPL JVSRP Fellow with experience developing navigation solutions for Mars Sample Return Rover using terramechanics and inertial sensors. Fulbright Scholar with a Ph.D. in Aerospace Engineering from West Virginia University, M.Sc. in Aeronautics and Astronautics from Istanbul Technical University, and team leader of Turkey's first can-sized microsatellite project."
   },
   {
     "id": "tuba-girgin",

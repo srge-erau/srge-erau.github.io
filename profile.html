@@ -544,9 +544,9 @@
                             </div>
                         </div>
                         <div class="profile-body">
-                            ${member.bio ? `
+                            ${(member.fullBio || member.bio) ? `
                                 <h3 class="profile-section-title">About</h3>
-                                <p class="profile-bio">${member.bio}</p>
+                                <p class="profile-bio">${member.fullBio || member.bio}</p>
                             ` : ''}
 
                             <h3 class="profile-section-title">Research Interests</h3>
