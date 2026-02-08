@@ -26,33 +26,33 @@
   {
     "id": "akash-joseph",
     "name": "Akash Joseph",
-    "role": "PhD Student in Aerospace Engineering",
+    "role": "Graduate Research Assistant - PhD Student",
     "email": "josepha8@my.erau.edu",
     "photo": "",
     "linkedin": "https://www.linkedin.com/in/akash-joseph-60113095/",
     "bio": "Researches geometric mechanics and cislunar astrodynamics. Studies orbit families (NRHO, DRO, axial orbits) using symplectic methods, manifold geometry, and Poincaré sections for low-energy trajectory design and CubeSat deployment strategies."
   },
   {
+    "id": "jasmine-nakladov",
+    "name": "Jasmine Nakladov",
+    "role": "Graduate Research Assistant - Master's Student",
+    "email": "nakladoj@my.erau.edu",
+    "photo": "assets/team/jasmine_nakladov.jpg",
+    "bio": "Develops unified control frameworks for spacecraft-manipulator missions. Integrates Differentiable MPC with Reinforcement Learning for disturbance compensation and satellite stability in Earth and cislunar space."
+  },
+  {
     "id": "leia-spaniak",
     "name": "Leia Spaniak",
-    "role": "Master's Student",
+    "role": "Graduate Research Assistant - Master's Student",
     "email": "spaniakl@my.erau.edu",
     "photo": "assets/team/leia_spaniak.jpg",
     "linkedin": "https://www.linkedin.com/in/leiaspaniak",
     "bio": "Researches autonomous space systems with emphasis on perception for lunar applications. Develops uncertainty-aware terrain classification and trafficability assessment for lunar South Pole using semantic segmentation and probabilistic mapping."
   },
   {
-    "id": "jasmine-nakladov",
-    "name": "Jasmine Nakladov",
-    "role": "Master's Student",
-    "email": "nakladoj@my.erau.edu",
-    "photo": "assets/team/jasmine_nakladov.jpg",
-    "bio": "Develops unified control frameworks for spacecraft-manipulator missions. Integrates Differentiable MPC with Reinforcement Learning for disturbance compensation and satellite stability in Earth and cislunar space."
-  },
-  {
     "id": "jose-castelblanco",
     "name": "Jose Castelblanco",
-    "role": "Master's Student (ME)",
+    "role": "Graduate Research Assistant - Master's Student (ME)",
     "email": "castej10@my.erau.edu",
     "photo": "assets/team/jose.jfif",
     "bio": "Develops autonomy and sensing systems for mobile robots with focus on space and planetary field robotics. Research spans ROS 2 autonomy stacks, edge computing, and multi-sensor pipelines, with validation on quadruped platforms in unstructured environments."
@@ -60,25 +60,37 @@
   {
     "id": "benjamin-heckel",
     "name": "Benjamin Heckel",
-    "role": "Research Assistant – Undergraduate Student in Aerospace Engineering (Accelerated bachelor's to master's)",
+    "role": "Undergraduate Research Assistant",
+    "additionalInfo": "Aerospace Engineering (Accelerated bachelor's to master's)",
     "email": "heckelb@my.erau.edu",
     "photo": "",
     "linkedin": "https://www.linkedin.com/in/benjamin-heckel",
     "bio": "Space Robotics researcher focused on bio-inspired end-effector design to improve robotic mobility in planetary environments."
   },
   {
-    "id": "dheer-chhabria",
-    "name": "Dheer Chhabria",
-    "role": "Research Assistant - Undergraduate Student in Aerospace Engineering with a Minor in Computer Science",
-    "email": "chhabrid@my.erau.edu",
+    "id": "james-hudson-kirk",
+    "name": "James Hudson Kirk",
+    "role": "Undergraduate Research Assistant",
+    "additionalInfo": "Aerospace Engineering",
+    "email": "kirkj15@my.erau.edu",
     "photo": "",
-    "linkedin": "https://www.linkedin.com/in/dheer-chhabria",
-    "bio": "Space Robotics researcher focusing on quadruped robotics and developing their electronics, as well as the development and implementation of various sensor systems."
+    "linkedin": "https://www.linkedin.com/in/james-kirk",
+    "bio": "Orbital debris researcher focusing on optical detection and tracking of sub-10cm debris. Experienced in sensor design, orbital mechanics, and space situational awareness."
+  },
+  {
+    "id": "jose-walker-demedeiros",
+    "name": "Jose Walker Demedeiros",
+    "role": "Undergraduate Research Assistant",
+    "email": "demedeij@my.erau.edu",
+    "photo": "assets/team/Demedeiros.png",
+    "linkedin": "",
+    "bio": "Space Robotics researcher focusing on mixed sensor integration for spatial mapping and awareness including quadrupeds, rovers and micro-drones."
   },
   {
     "id": "haitish-gandhi",
     "name": "Haitish Gandhi",
-    "role": "Undergraduate Researcher – Student in Aerospace Engineering Honors, with minors in Computer Aided Design/Manufacturing and Applied Mathematics.",
+    "role": "Undergraduate Research Assistant",
+    "additionalInfo": "Aerospace Engineering Honors, with minors in CAD/Manufacturing and Applied Mathematics",
     "email": "gandhih@my.erau.edu",
     "photo": "",
     "linkedin": "https://www.linkedin.com/in/haitish-gandhi",
@@ -87,51 +99,37 @@
   {
     "id": "nicolas-bonasoro",
     "name": "Nicolas Bonasoro",
-    "role": "Research Assistant – Undergraduate Student in Aerospace Engineering with an Associate Degree in Applied Science – Business Administration",
+    "role": "Undergraduate Research Assistant",
+    "additionalInfo": "Aerospace Engineering with an Associate Degree in Applied Science – Business Administration",
     "email": "bonasorn@my.erau.edu",
     "photo": "",
     "linkedin": "https://www.linkedin.com/in/nicolas-bonasoro",
     "bio": "Undergraduate Aerospace Engineering student researching lunar terrain operations and autonomous navigation. Work includes lunar habitat design, terramechanics, rover path planning and excavation, and improving safety in space operations."
   },
   {
-    "id": "james-hudson-kirk",
-    "name": "James Hudson Kirk",
-    "role": "Research Assistant - Undergraduate Student in Aerospace Engineering",
-    "email": "kirkj15@my.erau.edu",
+    "id": "dheer-chhabria",
+    "name": "Dheer Chhabria",
+    "role": "Undergraduate Research Assistant",
+    "additionalInfo": "Aerospace Engineering with a Minor in Computer Science",
+    "email": "chhabrid@my.erau.edu",
     "photo": "",
-    "linkedin": "https://www.linkedin.com/in/james-kirk",
-    "bio": "Orbital debris researcher focusing on optical detection and tracking of sub-10cm debris. Experienced in sensor design, orbital mechanics, and space situational awareness."
+    "linkedin": "https://www.linkedin.com/in/dheer-chhabria",
+    "bio": "Space Robotics researcher focusing on quadruped robotics and developing their electronics, as well as the development and implementation of various sensor systems."
   },
   {
     "id": "kylie-nager",
     "name": "Kylie Nager",
-    "role": "Research Assistant – Undergraduate Student in Aerospace Engineering",
+    "role": "Undergraduate Research Assistant",
+    "additionalInfo": "Aerospace Engineering",
     "email": "nagerk1@my.erau.edu",
     "photo": "",
     "linkedin": "https://www.linkedin.com/in/kylie-nager",
     "bio": "Systems-oriented CubeSat resilience researcher focused on advancing the reliability and robustness of CubeSat design to ensure mission success through architecture, estimator-aware fault management, and V&V, applicable across subsystems."
   },
   {
-    "id": "jose-walker-demedeiros",
-    "name": "Jose Walker Demedeiros",
-    "role": "Research Assistant - Undergraduate Researcher",
-    "email": "demedeij@my.erau.edu",
-    "photo": "assets/team/Demedeiros.png",
-    "linkedin": "",
-    "bio": "Space Robotics researcher focusing on mixed sensor integration for spatial mapping and awareness including quadrupeds, rovers and micro-drones."
-  },
-  {
-    "id": "jonah-graff",
-    "name": "Jonah Graff",
-    "role": "Undergraduate Researcher",
-    "email": "",
-    "photo": "",
-    "bio": ""
-  },
-  {
     "id": "payton-miller",
     "name": "Payton Miller",
-    "role": "Undergraduate Researcher",
+    "role": "Undergraduate Research Assistant",
     "email": "",
     "photo": "assets/team/payton.jpg",
     "bio": "Orbital mechanics researcher specializing in lunar satellite station-keeping strategies. Focuses on spacecraft control techniques in cislunar environments using ANSYS STK."
@@ -139,7 +137,15 @@
   {
     "id": "garrett-seyler",
     "name": "Garrett Seyler",
-    "role": "Undergraduate Researcher",
+    "role": "Undergraduate Research Assistant",
+    "email": "",
+    "photo": "",
+    "bio": ""
+  },
+  {
+    "id": "jonah-graff",
+    "name": "Jonah Graff",
+    "role": "Undergraduate Research Assistant",
     "email": "",
     "photo": "",
     "bio": ""

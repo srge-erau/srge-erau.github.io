@@ -669,21 +669,7 @@
                     else undergrads.push(member);
                 });
 
-                // Sort graduates: PhD first, then Master's, alphabetically within each
-                const gradRank = role => {
-                    const r = (role || '').toLowerCase();
-                    if (r.includes('phd')) return 0;
-                    return 1;
-                };
-                graduates.sort((a, b) => {
-                    const ar = gradRank(a.role);
-                    const br = gradRank(b.role);
-                    if (ar !== br) return ar - br;
-                    return (a.name || '').localeCompare(b.name || '');
-                });
-
-                // Sort undergrads alphabetically
-                undergrads.sort((a, b) => (a.name || '').localeCompare(b.name || ''));
+                // Preserve order from JSON file (no sorting needed)
 
                 // Render each section
                 directorGrid.innerHTML = directors.map(m => createMemberCard(m, true)).join('');
