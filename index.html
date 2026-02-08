@@ -918,19 +918,8 @@
             <div class="section-title">
                 <h2>Our Lab</h2>
             </div>
-            <div class="lab-photos">
-                <div class="lab-photo">
-                    <img src="./assets/lab/lab-photo-1.jpg" alt="Lab robot testing" onerror="this.src='assets/placeholder/robot.svg'">
-                </div>
-                <div class="lab-photo">
-                    <img src="./assets/lab/lab-photo-2.jpg" alt="Computer visualization" onerror="this.src='assets/placeholder/robot.svg'">
-                </div>
-                <div class="lab-photo">
-                    <img src="./assets/lab/lab-photo-3.jpg" alt="Student working" onerror="this.src='assets/placeholder/robot.svg'">
-                </div>
-                <div class="lab-photo">
-                    <img src="./assets/lab/lab-photo-4.jpg" alt="Student with multiple monitors" onerror="this.src='assets/placeholder/robot.svg'">
-                </div>
+            <div class="lab-photos" id="labPhotosGrid">
+                <!-- Photos will be loaded randomly via JavaScript -->
             </div>
             <div class="section-subtitle">
                 <p>The Space Robotics and Generative Estimation (SRGE) Lab, directed by Dr. Cagri Kilic, specializes in state estimation and navigation for planetary exploration robots. The lab develops physics-informed estimation methods, integrating pseudo-measurements and multi-sensor fusion to enhance localization and mapping in GNSS-denied environments. Research spans single- and multi-robot systems, optimizing autonomy, perception, and mobility in challenging terrains. The lab's work is directly applicable to planetary missions, supporting autonomous exploration, resource prospecting, and robotic collaboration on the Moon and Mars.</p>
@@ -1061,6 +1050,34 @@
                 localStorage.setItem('theme', isDark ? 'dark' : 'light');
                 if (siteLogo) siteLogo.src = isDark ? 'assets/Copy of SRGE Lab-White 1.png' : 'assets/Copy of SRGE Lab_black 1.png';
             });
+
+            // Load random lab photos
+            const allLabPhotos = [
+                { src: 'assets/lab/lab-photo-1.jpg', alt: 'SRGE Lab' },
+                { src: 'assets/lab/lab-photo-2.jpg', alt: 'SRGE Lab' },
+                { src: 'assets/lab/lab-photo-3.jpg', alt: 'SRGE Lab' },
+                { src: 'assets/lab/lab-photo-4.jpg', alt: 'SRGE Lab' },
+                { src: 'assets/lab/lab-photo-5.jpg', alt: 'SRGE Lab' },
+                { src: 'assets/lab/lab-photo-6.jfif', alt: 'SRGE Lab' },
+                { src: 'assets/lab/lab-photo-7.jfif', alt: 'SRGE Lab' },
+                { src: 'assets/lab/lab-photo-8.jpg', alt: 'SRGE Lab' },
+                { src: 'assets/lab/lab-photo-9.jpg', alt: 'SRGE Lab' },
+                { src: 'assets/lab/lab-photo-10.jpg', alt: 'SRGE Lab' },
+                { src: 'assets/lab/lab-photo-11.JPG', alt: 'SRGE Lab' }
+            ];
+
+            // Shuffle and pick 4 random photos
+            const shuffled = allLabPhotos.sort(() => Math.random() - 0.5);
+            const selectedPhotos = shuffled.slice(0, 4);
+
+            const labPhotosGrid = document.getElementById('labPhotosGrid');
+            if (labPhotosGrid) {
+                labPhotosGrid.innerHTML = selectedPhotos.map(photo => `
+                    <div class="lab-photo">
+                        <img src="./${photo.src}" alt="${photo.alt}" onerror="this.src='assets/placeholder/robot.svg'">
+                    </div>
+                `).join('');
+            }
 
             // Populate Publications dynamically with embeds
             fetch('./data/papers.json').then(r => r.json()).then(pubs => {
