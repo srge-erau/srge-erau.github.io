@@ -13,7 +13,7 @@
     "role": "Graduate Research Assistant – PhD Student",
     "email": "cibukgig@my.erau.edu",
     "photo": "assets/team/tuba_girgin.jpg",
-    "bio": "Robotics researcher specializing in ROS, robot learning, and deep learning for autonomous robot navigation and manipulation on planetary surfaces. Experienced in designing deep neural network architectures, including graph neural networks, for robot learning applications."
+    "bio": "Researches autonomous robot learning using reinforcement learning, graph neural networks, and deep learning. Enables robots to acquire locomotion, navigation, and manipulation skills. Experienced with ROS 2, Isaac Sim, and Unitree Go2 platforms."
   },
   {
     "id": "emre-girgin",
@@ -21,7 +21,7 @@
     "role": "Graduate Research Assistant - PhD Student",
     "email": "girgine@my.erau.edu",
     "photo": "assets/team/emre_girgin.jpg",
-    "bio": "Computer Vision / Deep Learning / Robotics"
+    "bio": "Researches uncertainty quantification for space robotics at the intersection of deep learning, computer vision, and safety-critical state estimation. Develops methods to convert deep model confidence into rigorous covariance matrices for lunar and Martian environments."
   },
   {
     "id": "akash-joseph",
@@ -30,7 +30,7 @@
     "email": "josepha8@my.erau.edu",
     "photo": "",
     "linkedin": "https://www.linkedin.com/in/akash-joseph-60113095/",
-    "bio": "Researches cislunar astrodynamics and spacecraft dynamics in multi-body environments. Studies orbit families such as NRHOs and ELFOs using the CR3BP to design deployment and control strategies for CubeSat constellations and low-energy transfers."
+    "bio": "Researches geometric mechanics and cislunar astrodynamics. Studies orbit families (NRHO, DRO, axial orbits) using symplectic methods, manifold geometry, and Poincaré sections for low-energy trajectory design and CubeSat deployment strategies."
   },
   {
     "id": "leia-spaniak",
@@ -39,7 +39,7 @@
     "email": "spaniakl@my.erau.edu",
     "photo": "assets/team/leia_spaniak.jpg",
     "linkedin": "https://www.linkedin.com/in/leiaspaniak",
-    "bio": "Researcher focused on integrating biologically inspired design in cybersecurity methods for aerospace navigation."
+    "bio": "Researches autonomous space systems with emphasis on perception for lunar applications. Develops uncertainty-aware terrain classification and trafficability assessment for lunar South Pole using semantic segmentation and probabilistic mapping."
   },
   {
     "id": "jasmine-nakladov",
@@ -47,7 +47,7 @@
     "role": "Master's Student",
     "email": "nakladoj@my.erau.edu",
     "photo": "assets/team/jasmine_nakladov.jpg",
-    "bio": "Dynamics and controls researcher focused on designing control systems to aid in autonomous robot navigation. Experienced in rover design and spacecraft control and trajectory development."
+    "bio": "Develops unified control frameworks for spacecraft-manipulator missions. Integrates Differentiable MPC with Reinforcement Learning for disturbance compensation and satellite stability in Earth and cislunar space."
   },
   {
     "id": "jose-castelblanco",
@@ -100,7 +100,7 @@
     "email": "kirkj15@my.erau.edu",
     "photo": "",
     "linkedin": "https://www.linkedin.com/in/james-kirk",
-    "bio": "Researcher using ANSYS STK to design and improve lunar satellite infrastructure for lunar mission safety in STK. Scenario designs include improved communication and coverage of the lunar surface as well as debris tracking capabilities."
+    "bio": "Orbital debris researcher focusing on optical detection and tracking of sub-10cm debris. Experienced in sensor design, orbital mechanics, and space situational awareness."
   },
   {
     "id": "kylie-nager",
@@ -133,8 +133,8 @@
     "name": "Payton Miller",
     "role": "Undergraduate Researcher",
     "email": "",
-    "photo": "",
-    "bio": ""
+    "photo": "assets/team/payton.jpg",
+    "bio": "Orbital mechanics researcher specializing in lunar satellite station-keeping strategies. Focuses on spacecraft control techniques in cislunar environments using ANSYS STK."
   },
   {
     "id": "garrett-seyler",
