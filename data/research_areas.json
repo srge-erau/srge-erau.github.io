@@ -2,56 +2,71 @@
   "orbital": {
     "id": "orbital",
     "title": "Orbital Robotics",
-    "description": "Research focused on space-based robotic systems, satellite operations, and cislunar exploration.",
+    "description": "Autonomous systems for spacecraft operations, orbital servicing, and cislunar exploration.",
     "image": "assets/research/orbital-placeholder.jpg",
     "areas": [
       {
-        "title": "AI Heliophysics",
-        "description": "Applying artificial intelligence to study solar activity and space weather phenomena.",
+        "title": "Cislunar Trajectory Design",
+        "description": "Orbit family analysis (NRHO, DRO, axial orbits), low-energy trajectory design, and CubeSat deployment strategies for lunar and deep-space missions.",
         "image": "assets/research/placeholder-1.jpg"
       },
       {
-        "title": "Debris Identification",
-        "description": "Detection and tracking of orbital debris for space situational awareness.",
+        "title": "Spacecraft-Manipulator Control",
+        "description": "Unified control frameworks for on-orbit servicing, satellite capture, and debris removal using model predictive control and reinforcement learning.",
         "image": "assets/research/placeholder-2.jpg"
       },
       {
-        "title": "Cislunar Applications",
-        "description": "Navigation and operations in the Earth-Moon system for future lunar missions.",
+        "title": "Space Situational Awareness",
+        "description": "Optical detection and tracking of orbital debris, sensor design for sub-10cm object identification, and collision avoidance systems.",
         "image": "assets/research/placeholder-3.jpg"
+      },
+      {
+        "title": "Satellite Station-Keeping",
+        "description": "Autonomous station-keeping strategies for lunar orbits, fuel-optimal maneuver planning, and long-duration mission support.",
+        "image": "assets/research/placeholder-4.jpg"
+      },
+      {
+        "title": "CubeSat Resilience",
+        "description": "Fault-tolerant architectures, estimator-aware anomaly detection, and verification methods for small satellite reliability.",
+        "image": "assets/research/placeholder-5.jpg"
       }
     ]
   },
   "planetary": {
     "id": "planetary",
     "title": "Planetary/Terrestrial Robotics",
-    "description": "Research focused on ground-based robotic systems for planetary exploration and terrestrial applications.",
+    "description": "Autonomous navigation, perception, and mobility for robots operating on lunar and Martian surfaces.",
     "image": "assets/lab/lab-photo-1.jpg",
     "areas": [
       {
-        "title": "Localization and Mapping",
-        "description": "Robust state estimation for rovers and legged robots in extreme, GNSS-denied environments.",
+        "title": "Cooperative Localization",
+        "description": "Multi-robot state estimation, physics-informed sensor fusion, and distributed navigation for GNSS-denied planetary environments.",
         "image": "assets/lab/lab-photo-1.jpg"
       },
       {
-        "title": "Multi-Robot Systems",
-        "description": "Swarm-based and distributed estimation for cooperative perception and navigation.",
+        "title": "Autonomous Robot Learning",
+        "description": "Reinforcement learning and graph neural networks for locomotion, navigation, and manipulation skills on legged and wheeled platforms.",
         "image": "assets/research/PXL_20250416_175220874.jpg"
       },
       {
-        "title": "Physics-Informed Estimation",
-        "description": "Incorporate environmental and motion constraints to improve accuracy and robustness.",
+        "title": "Uncertainty-Aware Perception",
+        "description": "Deep learning-based terrain perception with rigorous uncertainty quantification for safety-critical lunar and Martian operations.",
         "image": "assets/research/PXL_20250416_175104251.MP.jpg"
       },
       {
-        "title": "Terrain-Aware Mobility",
-        "description": "Slip-aware estimation and locomotion strategies for challenging terrains.",
+        "title": "Terrain Classification & Trafficability",
+        "description": "Semantic segmentation and probabilistic mapping for lunar South Pole terrain assessment and autonomous path planning.",
         "image": "assets/research/PXL_20250416_201037386.jpg"
       },
       {
-        "title": "Mission Applications",
-        "description": "Transition methods to real planetary missions and analog environments.",
+        "title": "Field Robotics Platforms",
+        "description": "Quadruped and rover autonomy stacks with ROS 2, edge computing, and multi-sensor pipelines validated in unstructured environments.",
         "image": "assets/research/PXL_20250416_200914074.MP.jpg"
+      },
+      {
+        "title": "Hybrid Locomotion & Terramechanics",
+        "description": "Bio-inspired end-effectors, quadruped-quadcopter hybrid systems, and terramechanics-based mobility for planetary surface operations.",
+        "image": "assets/research/placeholder-6.jpg"
       }
     ]
   }
