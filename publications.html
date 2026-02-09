@@ -225,57 +225,89 @@
             border-color: var(--secondary-color);
         }
 
-        /* Research grid for publications */
-        .research-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: var(--spacing-lg);
+        /* Publications list styles */
+        .publications-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .year-section {
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .year-header {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: var(--spacing-sm);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .publication-item {
             padding: var(--spacing-md) 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
         }
 
-        @media (min-width: 1200px) {
-            .research-grid {
-                grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            }
+        body.dark .publication-item {
+            border-bottom-color: rgba(255, 255, 255, 0.1);
         }
 
-        @media (min-width: 1600px) {
-            .research-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
+        .publication-item:last-child {
+            border-bottom: none;
         }
-        
-        .research-card {
-            background: var(--card-bg);
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--box-shadow);
+
+        .publication-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 0.25rem;
+            line-height: 1.4;
+        }
+
+        .publication-title a {
+            color: var(--primary-color);
+            text-decoration: none;
             transition: var(--transition);
         }
 
-        .research-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-        }
-        
-        .research-card-content {
-            padding: var(--spacing-md);
-        }
-        
-        .research-card-content h3 {
-            margin-top: 0;
-            color: var(--primary-color);
-            font-size: 1.3rem;
-            margin-bottom: var(--spacing-sm);
+        .publication-title a:hover {
+            color: var(--accent-hover);
+            text-decoration: underline;
         }
 
-        .research-card-content p {
-            margin-bottom: var(--spacing-sm);
+        .publication-authors {
             font-size: 0.95rem;
+            color: var(--text-color);
+            opacity: 0.85;
+            margin-bottom: 0.25rem;
         }
 
-        .research-card-content strong {
-            color: var(--secondary-color);
+        .publication-venue {
+            font-size: 0.9rem;
+            font-style: italic;
+            color: var(--text-color);
+            opacity: 0.7;
+        }
+
+        .publication-link {
+            display: inline-block;
+            margin-top: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .publication-link:hover {
+            text-decoration: underline;
+        }
+
+        .publication-link svg {
+            width: 14px;
+            height: 14px;
+            margin-left: 4px;
+            vertical-align: middle;
         }
 
         /* Footer */
@@ -329,10 +361,6 @@
             
             .menu-toggle.active span:nth-child(3) {
                 transform: rotate(-45deg) translate(5px, -6px);
-            }
-
-            .research-grid {
-                grid-template-columns: 1fr;
             }
 
             .btn {
@@ -389,7 +417,7 @@
             <div class="section-subtitle">
                 Peer-reviewed publications from our research in space robotics, localization, and autonomous systems.
             </div>
-            <div id="publicationsList" class="research-grid"></div>
+            <div id="publicationsList" class="publications-container"></div>
         </div>
     </section>
 
@@ -428,61 +456,40 @@
                 if (siteLogo) siteLogo.src = isDark ? 'assets/Copy of SRGE Lab-White 1.png' : 'assets/Copy of SRGE Lab_black 1.png';
             });
 
-            // Populate Publications dynamically with embeds
+            // Populate Publications as a list grouped by year
             fetch('./data/papers.json').then(r => r.json()).then(pubs => {
                 const list = document.getElementById('publicationsList');
-                if (!list) return; 
-                list.innerHTML = pubs.map((p, i) => `
-                    <div class="research-card">
-                        <div class="research-card-content">
-                            <h3>${p.title}</h3>
-                            <p><strong>Authors:</strong> ${p.authors}</p>
-                            <p><strong>Venue:</strong> ${p.venue || 'TBD'}</p>
-                            ${p.title.includes('Coming Soon') ? 
-                                `<p style="color: var(--accent-color); font-style: italic; margin-top: 1rem;">
-                                    This is a placeholder. Our lab's publications will be updated soon with actual research papers.
-                                </p>
-                                <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-top: 1rem;">
-                                    <button class="btn" style="opacity: 0.5; cursor: not-allowed;" disabled>PDF (Coming Soon)</button>
-                                    <button class="btn" style="opacity: 0.5; cursor: not-allowed;" disabled>Link (Coming Soon)</button>
-                                </div>` : 
-                                `<div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-top: 1rem;">
-                                    ${p.pdf && p.pdf !== '#' ? `<a class="btn" href="${p.pdf}" target="_blank" rel="noopener">PDF</a>` : ''}
-                                    ${p.link && p.link !== '#' ? `<a class="btn" href="${p.link}" target="_blank" rel="noopener">Link</a>` : ''}
-                                    ${p.embed ? `<button class="btn btn-outline" data-embed="pub-${i}">Embed</button>` : ''}
-                                </div>`
-                            }
-                        </div>
-                        ${p.embed ? `<div id="pub-${i}" style="display:none; height:420px; border-top: 1px solid #eee;">
-                            <iframe src="${p.embed}" style="width:100%; height:100%; border:0;" loading="lazy"></iframe>
-                        </div>` : ''}
+                if (!list) return;
+
+                // Group publications by year
+                const byYear = {};
+                pubs.forEach(p => {
+                    if (!byYear[p.year]) byYear[p.year] = [];
+                    byYear[p.year].push(p);
+                });
+
+                // Sort years descending
+                const years = Object.keys(byYear).sort((a, b) => b - a);
+
+                // Render
+                list.innerHTML = years.map(year => `
+                    <div class="year-section">
+                        <h3 class="year-header">${year}</h3>
+                        ${byYear[year].map(p => `
+                            <div class="publication-item">
+                                <div class="publication-title">
+                                    ${p.link ? `<a href="${p.link}" target="_blank" rel="noopener">${p.title}</a>` : p.title}
+                                </div>
+                                <div class="publication-authors">${p.authors}</div>
+                                <div class="publication-venue">${p.venue}</div>
+                                ${p.link ? `<a class="publication-link" href="${p.link}" target="_blank" rel="noopener">View Paper <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg></a>` : ''}
+                            </div>
+                        `).join('')}
                     </div>
                 `).join('');
-                list.querySelectorAll('button[data-embed]').forEach(btn => {
-                    btn.addEventListener('click', () => {
-                        const id = btn.getAttribute('data-embed');
-                        const pane = document.getElementById(id);
-                        if (pane.style.display === 'none') { 
-                            pane.style.display = 'block'; 
-                            btn.textContent = 'Hide'; 
-                            btn.classList.remove('btn-outline');
-                        }
-                        else { 
-                            pane.style.display = 'none'; 
-                            btn.textContent = 'Embed'; 
-                            btn.classList.add('btn-outline');
-                        }
-                    });
-                });
             }).catch(() => {
-                // If data loading fails, show a message
                 document.getElementById('publicationsList').innerHTML = `
-                    <div class="research-card">
-                        <div class="research-card-content">
-                            <h3>Publications Coming Soon</h3>
-                            <p>Our publication list is being updated. Please check back soon for our latest research papers.</p>
-                        </div>
-                    </div>
+                    <p style="text-align: center; padding: 2rem;">Publications are being updated. Please check back soon.</p>
                 `;
             });
         });

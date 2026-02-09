@@ -4,223 +4,195 @@
     "authors": "J.E. Nakladov, C. Kilic",
     "venue": "AIAA SCITECH 2026 Forum",
     "year": 2026,
-    "link": null,
-    "pdf": null
+    "link": null
   },
   {
     "title": "Autonomous Robotic Assembly for Planetary Missions: A Dual Arm LEGO Based Simulation Study",
     "authors": "D. Chhabria, C. Kilic",
     "venue": "AIAA SCITECH 2026 Forum",
     "year": 2026,
-    "link": null,
-    "pdf": null
+    "link": null
   },
   {
     "title": "Hybrid Hierarchical Swarm Robots for Planetary Exploration",
     "authors": "E. Abid, J. Castelblanco, C. Kilic",
     "venue": "AIAA SCITECH 2026 Forum",
     "year": 2026,
-    "link": null,
-    "pdf": null
+    "link": null
   },
   {
     "title": "Design and Simulation of HyDroQuad: A Drone-Quadruped Hybrid for Lightweight Multi-Modal Locomotion",
     "authors": "H. Gandhi, C. Kilic",
     "venue": "AIAA SCITECH 2026 Forum",
     "year": 2026,
-    "link": null,
-    "pdf": null
+    "link": null
   },
   {
     "title": "Advanced Manufacturing and Materials of a Bio-mimetic Hoof for Space Robotics Applications",
     "authors": "B.C. Heckel, S. Nitta, C. Kilic",
     "venue": "AIAA SCITECH 2026 Forum",
     "year": 2026,
-    "link": null,
-    "pdf": null
+    "link": null
   },
   {
     "title": "Non-Prehensile Robotic Pushing Strategies for Sloped Terrain and Planetary Surface Conditions",
     "authors": "T. Girgin, C. Kilic",
     "venue": "AIAA SCITECH 2026 Forum",
     "year": 2026,
-    "link": null,
-    "pdf": null
+    "link": null
   },
   {
     "title": "Learning Rock Pushability on Rough Planetary Terrain",
     "authors": "T. Girgin, E. Girgin, C. Kilic",
-    "venue": "arXiv preprint arXiv:2505.09833",
+    "venue": "arXiv preprint",
     "year": 2025,
-    "link": "https://arxiv.org/abs/2505.09833",
-    "pdf": null
+    "link": "https://arxiv.org/abs/2505.09833"
   },
   {
     "title": "Analysis of the Unscented Transform for Cooperative Localization with only Inter-vehicle Ranging Information",
     "authors": "U. Olawoye, C. Kilic, J.N. Gross",
     "venue": "IEEE/ION Position, Location and Navigation Symposium (PLANS)",
     "year": 2025,
-    "link": null,
-    "pdf": null
+    "link": null
   },
   {
     "title": "Planetary Locomotion Systems for Enhanced Mobility Through Hybrid and Adaptive Methods",
     "authors": "H. Gandhi, C. Kilic",
     "venue": "AIAA Regional Student Conferences",
     "year": 2025,
-    "link": null,
-    "pdf": null
+    "link": null
   },
   {
     "title": "Space Exploration Challenges: A Novel Investigation and Study of Unmanned Space Vehicles",
     "authors": "R.K. Arram, A. Gupta, C. Kilic",
     "venue": "AIAA Regional Student Conferences",
     "year": 2025,
-    "link": null,
-    "pdf": null
+    "link": null
   },
   {
     "title": "Adaptive Locomotion for Planetary Exploration Robots",
     "authors": "I. Long, C. Kilic",
     "venue": "AIAA Regional Student Conferences",
     "year": 2024,
-    "link": null,
-    "pdf": null
+    "link": null
   },
   {
     "title": "Evaluation of the Benefits of Zero Velocity Update in Decentralized EKF-Based Cooperative Localization Algorithms for GNSS-Denied Multi-Robot Systems",
     "authors": "C. Kilic, E. Gutierrez, J.N. Gross",
     "venue": "NAVIGATION: Journal of the Institute of Navigation",
     "year": 2023,
-    "link": null,
-    "pdf": null
+    "link": "https://navi.ion.org/content/70/4/navi.608"
   },
   {
     "title": "Multi-Robot Cooperation for Lunar In-Situ Resource Utilization",
     "authors": "B. Martinez Rocamora Jr, C. Kilic, C. Tatsch, G.A.S. Pereira, J.N. Gross",
     "venue": "Frontiers in Robotics and AI",
     "year": 2023,
-    "link": "https://doi.org/10.3389/frobt.2023.1149080",
-    "pdf": null
+    "link": "https://doi.org/10.3389/frobt.2023.1149080"
   },
   {
     "title": "Pseudo-Measurements in a Decentralized Cooperative Localization",
     "authors": "E. Gutierrez, C. Kilic, J.N. Gross",
     "venue": "ION International Technical Meeting (ITM)",
     "year": 2022,
-    "link": null,
-    "pdf": null
+    "link": null
   },
   {
     "title": "Proprioceptive Slip Detection for Planetary Rovers in Perceptually Degraded Extraterrestrial Environments",
     "authors": "C. Kilic, Y. Gu, J.N. Gross",
     "venue": "Field Robotics",
     "year": 2022,
-    "link": null,
-    "pdf": null
+    "link": "https://arxiv.org/abs/2207.13629"
   },
   {
     "title": "NASA Space Robotics Challenge 2 Qualification Round: An Approach to Autonomous Lunar Rover Operations",
     "authors": "C. Kilic, B. Martinez, C.A. Tatsch, J. Beard, J. Strader, S. Das, D. Ross, Y. Gu, G. Pereira, J.N. Gross",
     "venue": "IEEE Aerospace and Electronic Systems Magazine",
     "year": 2021,
-    "link": null,
-    "pdf": null
+    "link": "https://ieeexplore.ieee.org/document/9642033"
   },
   {
     "title": "Slip-Based Autonomous ZUPT through Gaussian Process to Improve Planetary Rover Localization",
     "authors": "C. Kilic, N. Ohi, Y. Gu, J.N. Gross",
     "venue": "IEEE Robotics and Automation Letters (RA-L)",
     "year": 2021,
-    "link": "https://arxiv.org/abs/2103.07587",
-    "pdf": null
+    "link": "https://ieeexplore.ieee.org/document/9387093"
   },
   {
     "title": "ZUPT Aided GNSS Factor Graph with Inertial Navigation Integration for Wheeled Robots",
     "authors": "C. Kilic, S. Das, E. Gutierrez, R. Watson, J. Gross",
     "venue": "ION GNSS+",
     "year": 2021,
-    "link": null,
-    "pdf": null
+    "link": null
   },
   {
     "title": "A Comparison of Robust Kalman Filters for Improving Wheel-Inertial Odometry in Planetary Rovers",
     "authors": "S. Das, C. Kilic, R. Watson, J. Gross",
     "venue": "ION GNSS+",
     "year": 2021,
-    "link": null,
-    "pdf": null
+    "link": null
   },
   {
     "title": "Team Mountaineers Space Robotic Challenge Phase-2 Qualification Round Preparation Report",
     "authors": "C. Kilic, C.A. Tatsch, B. Martinez Rocamora Jr, J.J. Beard, D.W. Ross, J.N. Gross",
-    "venue": "arXiv preprint arXiv:2003.09968",
+    "venue": "arXiv preprint",
     "year": 2020,
-    "link": "https://arxiv.org/abs/2003.09968",
-    "pdf": null
+    "link": "https://arxiv.org/abs/2003.09968"
   },
   {
     "title": "Field-Testing of a UAV-UGV Team for GNSS-Denied Navigation in Subterranean Environments",
     "authors": "J. Gross, M. De Petrillo, J. Beard, H. Nichols, T. Swiger, R. Watson, C. Kirk, C. Kilic, J. Hikes, E. Upton, D. Ross, M. Russell, Y. Gu, C. Griffin",
     "venue": "ION GNSS+",
     "year": 2019,
-    "link": null,
-    "pdf": null
+    "link": null
   },
   {
     "title": "Improved Planetary Rover Inertial Navigation and Wheel Odometry Performance through Periodic Use of Zero-Type Constraints",
     "authors": "C. Kilic, J.N. Gross, N. Ohi, R. Watson, J. Strader, T. Swiger, S. Harper, Y. Gu",
     "venue": "IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)",
     "year": 2019,
-    "link": null,
-    "pdf": null
+    "link": "https://ieeexplore.ieee.org/document/8967634"
   },
   {
     "title": "Design of an Autonomous Precision Pollination Robot",
     "authors": "N. Ohi, K. Lassak, R. Watson, J. Strader, Y. Du, C. Yang, G. Hedrick, J. Nguyen, S. Harper, D. Reynolds, C. Kilic, J. Hikes, S. Mills, C. Castle, B. Buzzo, N. Waterland, J. Gross, Y. Park, X. Li, Y. Gu",
     "venue": "IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)",
     "year": 2018,
-    "link": null,
-    "pdf": null
+    "link": "https://ieeexplore.ieee.org/document/8594444"
   },
   {
     "title": "Maximum-Likelihood Power-Distortion Monitoring for GNSS-Signal Authentication",
     "authors": "J.N. Gross, C. Kilic, T.E. Humphreys",
     "venue": "IEEE Transactions on Aerospace and Electronic Systems (TAES)",
     "year": 2018,
-    "link": null,
-    "pdf": null
+    "link": "https://ieeexplore.ieee.org/document/8387427"
   },
   {
     "title": "Spacecraft Relative Navigation using Only Range-Rate Measurements",
     "authors": "C. Kilic, J.A. Christian",
     "venue": "AIAA Guidance, Navigation, and Control Conference",
     "year": 2017,
-    "link": null,
-    "pdf": null
+    "link": null
   },
   {
     "title": "Mission Analysis of a 2U CubeSat, BeEagleSat",
     "authors": "C. Kilic, A.R. Aslan",
     "venue": "7th International Conference on Recent Advances in Space Technologies (RAST)",
     "year": 2015,
-    "link": null,
-    "pdf": null
+    "link": null
   },
   {
     "title": "Comprehensive Study of Small Satellite Moon Missions: Architecture Design, Electric Propulsion System Optimization and Cost Analysis",
     "authors": "O. Kara, C. Kilic",
     "venue": "International Astronautical Congress (IAC)",
     "year": 2015,
-    "link": null,
-    "pdf": null
+    "link": null
   },
   {
     "title": "Deployment Strategy Study of QB50 Network of CubeSats",
     "authors": "C. Kilic, T. Scholz, C.O. Asma",
     "venue": "6th International Conference on Recent Advances in Space Technologies (RAST)",
     "year": 2013,
-    "link": null,
-    "pdf": null
+    "link": null
   }
 ]
