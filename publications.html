@@ -231,19 +231,6 @@
             margin: 0 auto;
         }
 
-        .year-section {
-            margin-bottom: var(--spacing-lg);
-        }
-
-        .year-header {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            border-bottom: 3px solid var(--secondary-color);
-            padding-bottom: var(--spacing-sm);
-            margin-bottom: var(--spacing-md);
-        }
-
         .publication-item {
             padding: var(--spacing-md) 0;
             border-bottom: 1px solid rgba(0, 0, 0, 0.1);
@@ -257,46 +244,36 @@
             border-bottom: none;
         }
 
-        .publication-title {
-            font-size: 1.1rem;
-            font-weight: 600;
+        .publication-citation {
+            font-size: 1rem;
+            line-height: 1.6;
             color: var(--text-color);
-            margin-bottom: 0.25rem;
-            line-height: 1.4;
         }
 
-        .publication-title a {
+        .publication-citation a {
             color: var(--primary-color);
             text-decoration: none;
             transition: var(--transition);
         }
 
-        .publication-title a:hover {
-            color: var(--accent-hover);
+        .publication-citation a:hover {
             text-decoration: underline;
         }
 
-        .publication-authors {
-            font-size: 0.95rem;
-            color: var(--text-color);
-            opacity: 0.85;
-            margin-bottom: 0.25rem;
+        .publication-title {
+            font-weight: 600;
         }
 
         .publication-venue {
-            font-size: 0.9rem;
             font-style: italic;
-            color: var(--text-color);
-            opacity: 0.7;
         }
 
         .publication-link {
             display: inline-block;
-            margin-top: 0.5rem;
+            margin-left: 0.5rem;
             font-size: 0.85rem;
             color: var(--primary-color);
             text-decoration: none;
-            font-weight: 500;
         }
 
         .publication-link:hover {
@@ -304,9 +281,8 @@
         }
 
         .publication-link svg {
-            width: 14px;
-            height: 14px;
-            margin-left: 4px;
+            width: 12px;
+            height: 12px;
             vertical-align: middle;
         }
 
@@ -456,35 +432,23 @@
                 if (siteLogo) siteLogo.src = isDark ? 'assets/Copy of SRGE Lab-White 1.png' : 'assets/Copy of SRGE Lab_black 1.png';
             });
 
-            // Populate Publications as a list grouped by year
+            // Populate Publications as citation list
             fetch('./data/papers.json').then(r => r.json()).then(pubs => {
                 const list = document.getElementById('publicationsList');
                 if (!list) return;
 
-                // Group publications by year
-                const byYear = {};
-                pubs.forEach(p => {
-                    if (!byYear[p.year]) byYear[p.year] = [];
-                    byYear[p.year].push(p);
-                });
+                // Sort by year descending
+                pubs.sort((a, b) => b.year - a.year);
 
-                // Sort years descending
-                const years = Object.keys(byYear).sort((a, b) => b - a);
-
-                // Render
-                list.innerHTML = years.map(year => `
-                    <div class="year-section">
-                        <h3 class="year-header">${year}</h3>
-                        ${byYear[year].map(p => `
-                            <div class="publication-item">
-                                <div class="publication-title">
-                                    ${p.link ? `<a href="${p.link}" target="_blank" rel="noopener">${p.title}</a>` : p.title}
-                                </div>
-                                <div class="publication-authors">${p.authors}</div>
-                                <div class="publication-venue">${p.venue}</div>
-                                ${p.link ? `<a class="publication-link" href="${p.link}" target="_blank" rel="noopener">View Paper <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg></a>` : ''}
-                            </div>
-                        `).join('')}
+                // Render as citation list
+                list.innerHTML = pubs.map(p => `
+                    <div class="publication-item">
+                        <p class="publication-citation">
+                            ${p.authors}.
+                            <span class="publication-title">${p.link ? `<a href="${p.link}" target="_blank" rel="noopener">${p.title}</a>` : p.title}</span>.
+                            <span class="publication-venue">${p.venue}</span>, ${p.year}.
+                            ${p.link ? `<a class="publication-link" href="${p.link}" target="_blank" rel="noopener">[Link] <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg></a>` : ''}
+                        </p>
                     </div>
                 `).join('');
             }).catch(() => {
