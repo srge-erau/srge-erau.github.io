@@ -13,22 +13,6 @@
     "fullBio": "Assistant Professor and Director of the Space Robotics and Generative Estimation (SRGE) Lab at Embry-Riddle Aeronautical University. Research focuses on cooperative localization, perception, and robot-terrain interactions for multi-robot systems in planetary environments. Develops physics-informed estimation methods integrating multi-sensor fusion for localization in GNSS-denied environments.\n\nFormer NASA JPL JVSRP Fellow, developing navigation solutions for Mars Sample Return Rover. Key member of Team Mountaineers (WVU) in NASA Space Robotics Challenge Phase 2, finishing in the top 6 out of 114 teams for autonomous lunar rover operations.\n\nFulbright Scholar, Statler Fellowship recipient, and Phi Kappa Phi Graduate Research Grant winner. QB50 scholar at the von Karman Institute in Belgium. Ph.D. in Aerospace Engineering from West Virginia University, M.Sc. and B.Sc. from Istanbul Technical University. Team leader of Turkey's first CanSat project. Currently teaches Spacecraft Systems (AE 323)."
   },
   {
-    "id": "tuba-girgin",
-    "name": "Tuba Girgin",
-    "role": "Graduate Research Assistant – PhD Student",
-    "email": "cibukgig@my.erau.edu",
-    "photo": "assets/team/tuba_girgin.jpg",
-    "bio": "Researches autonomous robot learning using reinforcement learning, graph neural networks, and deep learning. Enables robots to acquire locomotion, navigation, and manipulation skills. Experienced with ROS 2, Isaac Sim, and Unitree Go2 platforms."
-  },
-  {
-    "id": "emre-girgin",
-    "name": "Emre Girgin",
-    "role": "Graduate Research Assistant - PhD Student",
-    "email": "girgine@my.erau.edu",
-    "photo": "assets/team/emre_girgin.jpg",
-    "bio": "Researches uncertainty quantification for space robotics at the intersection of deep learning, computer vision, and safety-critical state estimation. Develops methods to convert deep model confidence into rigorous covariance matrices for lunar and Martian environments."
-  },
-  {
     "id": "akash-joseph",
     "name": "Akash Joseph",
     "role": "Graduate Research Assistant - PhD Student",
@@ -53,14 +37,6 @@
     "photo": "assets/team/leia_spaniak.jpg",
     "linkedin": "https://www.linkedin.com/in/leiaspaniak",
     "bio": "Researches autonomous space systems with emphasis on perception for lunar applications. Develops uncertainty-aware terrain classification and trafficability assessment for lunar South Pole using semantic segmentation and probabilistic mapping."
-  },
-  {
-    "id": "jose-castelblanco",
-    "name": "Jose Castelblanco",
-    "role": "Graduate Research Assistant - Master's Student (ME)",
-    "email": "castej10@my.erau.edu",
-    "photo": "assets/team/jose.jfif",
-    "bio": "Develops autonomy and sensing systems for mobile robots with focus on space and planetary field robotics. Research spans ROS 2 autonomy stacks, edge computing, and multi-sensor pipelines, with validation on quadruped platforms in unstructured environments."
   },
   {
     "id": "james-hudson-kirk",
@@ -123,6 +99,46 @@
   {
     "id": "jonah-graff",
     "name": "Jonah Graff",
+    "role": "Undergraduate Research Assistant",
+    "email": "",
+    "photo": "",
+    "bio": ""
+  },
+  {
+    "id": "samantha-rogers",
+    "name": "Samantha Rogers",
+    "role": "Undergraduate Research Assistant",
+    "email": "",
+    "photo": "",
+    "bio": ""
+  },
+  {
+    "id": "chloe-arnold",
+    "name": "Chloe Arnold",
+    "role": "Undergraduate Research Assistant",
+    "email": "",
+    "photo": "",
+    "bio": ""
+  },
+  {
+    "id": "julia-cortese",
+    "name": "Julia Cortese",
+    "role": "Undergraduate Research Assistant",
+    "email": "",
+    "photo": "",
+    "bio": ""
+  },
+  {
+    "id": "aashman-gupta",
+    "name": "Aashman Gupta",
+    "role": "Undergraduate Research Assistant",
+    "email": "",
+    "photo": "",
+    "bio": ""
+  },
+  {
+    "id": "justin-campos",
+    "name": "Justin Campos",
     "role": "Undergraduate Research Assistant",
     "email": "",
     "photo": "",
